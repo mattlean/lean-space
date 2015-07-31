@@ -1,0 +1,12 @@
+{
+  "name": "lean-space",
+  "version": "0.0.0",
+  "homepage": "https://github.com/IsaacLean/lean-space",
+  "authors": [
+    "Matthew Isaac Lean"
+  ],
+  "license": "N/A",
+  "dependencies": {
+    "normalize.css": "~3.0.3"
+  }
+}
