@@ -2,6 +2,10 @@ $navbar-bgcolor: #1d1d20;
 $content-bgcolor: #1f1e23;
 $navbar-width: 200px;
 
+$font-color: #fff;
+$link-color: #5d6066;
+$hover-color: #fff;
+
 /* General */
 body {
 	background: $content-bgcolor; /* Old browsers */
@@ -13,15 +17,35 @@ body {
 	background: linear-gradient(to bottom, $content-bgcolor 0%,#39414e 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$content-bgcolor', endColorstr='#39414e',GradientType=0 ); /* IE6-9 */
 	background-attachment: fixed;
-	color: #fff;
+	color: $font-color;
+	font-size: 18px;
+}
+
+a, a:link, a:visited, a:hover, a:active {
+	color: $link-color;
+	text-decoration: none;
+}
+
+a:hover, a:active {
+	color: $hover-color;
+	$transition-time: .4s;
+	transition: $transition-time;
+	-o-transition: $transition-time;
+	-ms-transition: $transition-time;
+	-moz-transition: $transition-time;
+	-webkit-transition: $transition-time;
 }
 
 h1, h2 {
-	margin: 0;
+	margin: 8px 0;
+}
+
+p {
+	margin: 8px 0 10px;
 }
 
 /* Navbar Area */
-.navbar {
+#navbar {
 	box-sizing: border-box;
 	width: $navbar-width;
 	padding: 10px 10px;
@@ -33,9 +57,20 @@ h1, h2 {
 	background-color: $navbar-bgcolor;
 }
 
+#navbar ul {
+	font-size: 16px;
+	padding: 0;
+	list-style-type: none;
+	text-transform: uppercase;
+}
+
+a#logo, a#logo:link, a#logo:visited {
+	color: #fff;
+}
+
 /* Content Area */
-.content {
+#content {
 	box-sizing: border-box;
-	max-width: 800px;
-	padding: 10px 10px 10px $navbar-width + 10;
+	max-width: 960px;
+	padding: 10px 10px 10px $navbar-width + 20;
 }
