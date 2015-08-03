@@ -1,5 +1,41 @@
-$navbar-bgcolor: #ccc;
+$navbar-bgcolor: #1d1d20;
+$content-bgcolor: #1f1e23;
+$navbar-width: 200px;
 
+/* General */
+body {
+	background: $content-bgcolor; /* Old browsers */
+	background: -moz-linear-gradient(top, $content-bgcolor 0%, #39414e 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$content-bgcolor), color-stop(100%,#39414e)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, $content-bgcolor 0%,#39414e 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, $content-bgcolor 0%,#39414e 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, $content-bgcolor 0%,#39414e 100%); /* IE10+ */
+	background: linear-gradient(to bottom, $content-bgcolor 0%,#39414e 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$content-bgcolor', endColorstr='#39414e',GradientType=0 ); /* IE6-9 */
+	background-attachment: fixed;
+	color: #fff;
+}
+
+h1, h2 {
+	margin: 0;
+}
+
+/* Navbar Area */
 .navbar {
-	background-color: $navbar-bgcolor
+	box-sizing: border-box;
+	width: $navbar-width;
+	padding: 10px 10px;
+	float: left;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	background-color: $navbar-bgcolor;
+}
+
+/* Content Area */
+.content {
+	box-sizing: border-box;
+	max-width: 800px;
+	padding: 10px 10px 10px $navbar-width + 10;
 }
