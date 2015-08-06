@@ -1,33 +1,27 @@
 $navbar-bgcolor: #1d1d20;
-$content-bgcolor: #1f1e23;
+$content-bgcolor: #fff;
 $navbar-width: 200px;
 
-$font-color: #fff;
+$font-color: #000;
 $link-color: #5d6066;
 $hover-color: #fff;
 
 /* General */
 body {
-	background: $content-bgcolor; /* Old browsers */
-	background: -moz-linear-gradient(top, $content-bgcolor 0%, #39414e 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$content-bgcolor), color-stop(100%,#39414e)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, $content-bgcolor 0%,#39414e 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, $content-bgcolor 0%,#39414e 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, $content-bgcolor 0%,#39414e 100%); /* IE10+ */
-	background: linear-gradient(to bottom, $content-bgcolor 0%,#39414e 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$content-bgcolor', endColorstr='#39414e',GradientType=0 ); /* IE6-9 */
-	background-attachment: fixed;
+	background: $content-bgcolor;
 	color: $font-color;
-	font-size: 18px;
+	font: 18px 'Open Sans', Helvetica, Arial, sans-serif;
 }
 
 a, a:link, a:visited, a:hover, a:active {
 	color: $link-color;
+	padding-left: 0;
 	text-decoration: none;
 }
 
 a:hover, a:active {
 	color: $hover-color;
+	padding-left: 10px;
 	$transition-time: .4s;
 	transition: $transition-time;
 	-o-transition: $transition-time;
