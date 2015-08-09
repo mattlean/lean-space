@@ -1,10 +1,15 @@
-$navbar-bgcolor: #1d1d20;
-$content-bgcolor: #fff;
-$navbar-width: 200px;
-
 $font-color: #000;
-$link-color: #5d6066;
-$hover-color: #fff;
+$link-color: #3ebac1;
+$link-hover-color: #43625d;
+
+$navbar-width: 230px;
+$navbar-bgcolor: #1d1d20;
+
+$content-max-width: 960px;
+$content-bgcolor: #fff;
+
+$navbar-link-color: #babbbd;
+$navbar-hover-color: #fff;
 
 /* General */
 body {
@@ -15,56 +20,89 @@ body {
 
 a, a:link, a:visited, a:hover, a:active {
 	color: $link-color;
-	padding-left: 0;
+	font-weight: bold;
 	text-decoration: none;
+	transition: color .25s ease-out;
 }
 
 a:hover, a:active {
-	color: $hover-color;
-	padding-left: 10px;
-	$transition-time: .4s;
-	transition: $transition-time;
-	-o-transition: $transition-time;
-	-ms-transition: $transition-time;
-	-moz-transition: $transition-time;
-	-webkit-transition: $transition-time;
+	color: $link-hover-color;
 }
 
-h1, h2 {
-	margin: 8px 0;
+h1 {
+	font-size: 24px;
+	margin: 8px 0 2px;
+	text-transform: uppercase;
 }
 
 p {
-	margin: 8px 0 10px;
+	margin: 0 0 10px;
+}
+
+ul {
+	margin: 2px 0 10px 0;
 }
 
 /* Navbar Area */
 #navbar {
 	box-sizing: border-box;
 	width: $navbar-width;
-	padding: 10px 10px;
+	padding: 10px 20px 10px 0;
 	float: left;
 	position: fixed;
 	top: 0;
 	bottom: 0;
 	left: 0;
 	background-color: $navbar-bgcolor;
+	text-align: right;
 }
 
-#navbar ul {
-	font-size: 16px;
-	padding: 0;
-	list-style-type: none;
-	text-transform: uppercase;
+#logo {
+	font: 48px 'Exo', sans-serif;
+	font-style: italic;
+	letter-spacing: 2px;
+	margin-right: 10px;
 }
 
 a#logo, a#logo:link, a#logo:visited {
 	color: #fff;
 }
 
+a#logo:hover {
+	color: $link-color;
+}
+
+#navbar ul {
+	margin-top: 10px;
+	padding: 0;
+	font-size: 16px;
+	list-style-type: none;
+	text-transform: uppercase;
+}
+
+#navbar li {
+	padding: 5px 10px 5px 0;
+	font-size: 14px;
+	letter-spacing: 4px;
+	transition: background-color .2s ease-out;
+}
+
+#navbar li:hover {
+	background-color: $link-color;
+}
+
+#navbar li a {
+	color: $navbar-link-color;
+	transition: color .15s ease-out;
+}
+
+#navbar li a:hover {
+	color: #fff;
+}
+
 /* Content Area */
 #content {
 	box-sizing: border-box;
-	max-width: 960px;
+	max-width: $content-max-width;
 	padding: 10px 10px 10px $navbar-width + 20;
 }
