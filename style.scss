@@ -80,29 +80,27 @@ a#logo:hover {
 	text-transform: uppercase;
 }
 
-#navbar li {
-	padding: 5px 10px 5px 0;
+#navbar li a {
+	padding: 8px 10px 8px 0;
+	display: block;
+	background-image: linear-gradient(to right, $link-color 50%, $navbar-bgcolor 50%);
+	background-position: 100%;
+	background-size: 200% 100%;
 	font-size: 14px;
 	letter-spacing: 4px;
-	transition: background-color .2s ease-out;
-}
-
-#navbar li:hover {
-	background-color: $link-color;
-}
-
-#navbar li a {
 	color: $navbar-link-color;
-	transition: color .15s ease-out;
+	transition: color .1s ease-out, background-position .15s ease-out;
 }
 
 #navbar li a:hover {
 	color: #fff;
+	/*background-color: $link-color;*/
+	background-position: 0;
 }
 
 /* Content Area */
 #content {
 	box-sizing: border-box;
 	max-width: $content-max-width;
-	padding: 10px 10px 10px $navbar-width + 20;
+	padding: 10px 10px 10px $navbar-width + 30;
 }
