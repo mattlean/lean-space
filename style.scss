@@ -1,8 +1,8 @@
 $bgcolor: #fafafa;
 $font-color: #000;
 $link-color: #3ebac1;
-$link-hover-color: #0a302e;
-$link-active-color: #43625c;
+$link-hover-color: #43625c;
+$link-active-color: #0a302e;
 
 $navbar-width: 230px;
 $navbar-bgcolor: #1d1d20;
@@ -158,11 +158,30 @@ a.btn-link {
 	background-color: $link-color;
 	color: $navbar-hover-color;
 	text-align: center;
+	transition: background-color .15s;
 }
 
 a.btn-link:hover {
 	background-color: $link-hover-color;
 	text-decoration: none;
+}
+
+a.btn-link:active {
+	background-color: $link-active-color;
+}
+
+img.resume-icon {
+	width: 20px;
+	height: 20px;
+	margin: 0 10px 4px 0;
+	vertical-align: middle;
+}
+
+img.github-mark {
+	width: 20px;
+	height: 20px;
+	margin: 0 10px 4px 0;
+	vertical-align: middle;
 }
 
 /* Media Queries */
