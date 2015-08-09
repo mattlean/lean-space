@@ -143,6 +143,7 @@ a#logo:active {
 
 #front-subtitle {
 	font: bold italic 24px 'Exo', Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
 }
 
 #credentials {
@@ -170,14 +171,7 @@ a.btn-link:active {
 	background-color: $link-active-color;
 }
 
-img.resume-icon {
-	width: 20px;
-	height: 20px;
-	margin: 0 10px 4px 0;
-	vertical-align: middle;
-}
-
-img.github-mark {
+#credentials img {
 	width: 20px;
 	height: 20px;
 	margin: 0 10px 4px 0;
@@ -218,6 +212,11 @@ img.github-mark {
 
 	#content {
 		padding: 50px 10px 10px;
+	}
+
+	#credentials a {
+		margin-bottom: 10px;
+		display: block;
 	}
 }
 
