@@ -1,19 +1,21 @@
+$bgcolor: #fafafa;
 $font-color: #000;
 $link-color: #3ebac1;
-$link-hover-color: #43625d;
+$link-hover-color: #0a302e;
+$link-active-color: #43625c;
 
 $navbar-width: 230px;
 $navbar-bgcolor: #1d1d20;
 
 $content-max-width: 960px;
-$content-bgcolor: #fff;
 
 $navbar-link-color: #babbbd;
 $navbar-hover-color: #fff;
 
 /* General */
 body {
-	background: $content-bgcolor;
+	background: $bgcolor;
+	background-image: url('/img/noise.png');
 	color: $font-color;
 	font: 18px 'Open Sans', Helvetica, Arial, sans-serif;
 }
@@ -22,15 +24,20 @@ a, a:link, a:visited, a:hover, a:active {
 	color: $link-color;
 	font-weight: bold;
 	text-decoration: none;
-	transition: color .25s ease-out;
+	transition: color .1s ease-out;
 }
 
-a:hover, a:active {
+a:hover {
 	color: $link-hover-color;
+}
+
+a:active {
+	color: $link-active-color;
 }
 
 h1 {
 	font-size: 24px;
+	letter-spacing: 2px;
 	margin: 8px 0 2px;
 	text-transform: uppercase;
 }
@@ -48,7 +55,6 @@ ul {
 	box-sizing: border-box;
 	width: $navbar-width;
 	padding: 10px 20px 10px 0;
-	float: left;
 	position: fixed;
 	top: 0;
 	bottom: 0;
@@ -58,10 +64,9 @@ ul {
 }
 
 #logo {
-	font: 48px 'Exo', sans-serif;
-	font-style: italic;
-	letter-spacing: 2px;
 	margin-right: 10px;
+	font: italic 48px 'Exo', sans-serif;
+	letter-spacing: 2px;
 }
 
 a#logo, a#logo:link, a#logo:visited {
@@ -70,6 +75,10 @@ a#logo, a#logo:link, a#logo:visited {
 
 a#logo:hover {
 	color: $link-color;
+}
+
+a#logo:active {
+	color: $link-active-color;
 }
 
 #navbar ul {
@@ -93,9 +102,12 @@ a#logo:hover {
 }
 
 #navbar li a:hover {
-	color: #fff;
-	/*background-color: $link-color;*/
 	background-position: 0;
+	color: $navbar-hover-color;
+}
+
+#navbar li a:active {
+	background-image: linear-gradient(to right, $link-active-color 50%, $navbar-bgcolor 50%);
 }
 
 /* Content Area */
@@ -103,4 +115,37 @@ a#logo:hover {
 	box-sizing: border-box;
 	max-width: $content-max-width;
 	padding: 10px 10px 10px $navbar-width + 30;
+}
+
+/* Media Queries */
+@media (max-width: 480px) {
+	#navbar {
+		width: 100%;
+		padding: 6px 10px;
+		position: fixed;
+		right: 0;
+		bottom: auto;
+		text-align: initial;
+	}
+
+	#navbar h1 {
+		margin: 0 0;
+	}
+
+	#logo {
+		font-size: 24px;
+	}
+
+	#navbar ul {
+		margin: 0 0;
+		text-align: right;
+	}
+
+	#navbar li {
+		display: none;
+	}
+
+	#content {
+		padding: 10px 10px;
+	}
 }
