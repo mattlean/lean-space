@@ -121,7 +121,7 @@ a#logo:active {
 @media (max-width: 480px) {
 	#navbar {
 		width: 100%;
-		padding: 6px 10px;
+		padding: 6px 10px 6px 0;
 		position: fixed;
 		right: 0;
 		bottom: auto;
@@ -130,22 +130,31 @@ a#logo:active {
 
 	#navbar h1 {
 		margin: 0 0;
+		float: left;
 	}
 
 	#logo {
+		margin-left: 10px;
 		font-size: 24px;
 	}
 
 	#navbar ul {
-		margin: 0 0;
+		margin: 40px 0 0;
+		display: none;
 		text-align: right;
+		transition: display 1s ease-out;
 	}
 
-	#navbar li {
-		display: none;
+	#navbar button {
+		float: right;
 	}
 
 	#content {
 		padding: 10px 10px;
 	}
+}
+
+/* Utility Classes */
+#navbar ul.show-mobile-menu {
+	display: block;
 }
