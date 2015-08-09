@@ -110,6 +110,21 @@ a#logo:active {
 	background-image: linear-gradient(to right, $link-active-color 50%, $navbar-bgcolor 50%);
 }
 
+#navbar button {
+	width: 23px;
+	height: 34px;
+	float: right;
+	display: none;
+	background: none;
+	background: url('/img/mobile-menu-icon.png') no-repeat center;
+	border: 0px;
+	outline: none;
+}
+
+#navbar button:hover {
+	background: url('/img/mobile-menu-icon-hover.png') no-repeat center;
+}
+
 /* Content Area */
 #content {
 	box-sizing: border-box;
@@ -129,6 +144,7 @@ a#logo:active {
 	}
 
 	#navbar h1 {
+		height: 34px;
 		margin: 0 0;
 		float: left;
 	}
@@ -142,15 +158,14 @@ a#logo:active {
 		margin: 40px 0 0;
 		display: none;
 		text-align: right;
-		transition: display 1s ease-out;
 	}
 
 	#navbar button {
-		float: right;
+		display: block;
 	}
 
 	#content {
-		padding: 10px 10px;
+		padding: 50px 10px 10px;
 	}
 }
 
