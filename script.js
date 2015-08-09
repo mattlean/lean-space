@@ -11,4 +11,5 @@ function toggleMobileMenu() {
 	}
 }
 
+/* Main */
 btnMobileMenu.addEventListener('click', toggleMobileMenu);

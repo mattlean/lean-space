@@ -29,6 +29,7 @@ a, a:link, a:visited, a:hover, a:active {
 
 a:hover {
 	color: $link-hover-color;
+	text-decoration: underline;
 }
 
 a:active {
@@ -65,7 +66,7 @@ ul {
 
 #logo {
 	margin-right: 10px;
-	font: italic 48px 'Exo', sans-serif;
+	font: italic 48px 'Exo', Helvetica, Arial, sans-serif;
 	letter-spacing: 2px;
 }
 
@@ -75,6 +76,7 @@ a#logo, a#logo:link, a#logo:visited {
 
 a#logo:hover {
 	color: $link-color;
+	text-decoration: none;
 }
 
 a#logo:active {
@@ -104,6 +106,7 @@ a#logo:active {
 #navbar li a:hover {
 	background-position: 0;
 	color: $navbar-hover-color;
+	text-decoration: none;
 }
 
 #navbar li a:active {
@@ -130,6 +133,36 @@ a#logo:active {
 	box-sizing: border-box;
 	max-width: $content-max-width;
 	padding: 10px 10px 10px $navbar-width + 30;
+}
+
+#front-title {
+	margin-top: 8px;
+	font: italic 48px 'Exo', Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+}
+
+#front-subtitle {
+	font: bold italic 24px 'Exo', Helvetica, Arial, sans-serif;
+}
+
+#credentials {
+	margin-top: 30px;
+	text-align: center;
+}
+
+a.btn-link {
+	margin: 0 20px;
+	padding: 8px 40px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	background-color: $link-color;
+	color: $navbar-hover-color;
+	text-align: center;
+}
+
+a.btn-link:hover {
+	background-color: $link-hover-color;
+	text-decoration: none;
 }
 
 /* Media Queries */
@@ -172,4 +205,10 @@ a#logo:active {
 /* Utility Classes */
 #navbar ul.show-mobile-menu {
 	display: block;
+}
+
+#navbar li a.link-highlight {
+	background: none;
+	background-color: $link-active-color;
+	color: $navbar-hover-color;
 }
