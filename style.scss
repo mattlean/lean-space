@@ -149,7 +149,7 @@ a#logo:active {
 }
 
 #credentials {
-	margin-top: 30px;
+	margin: 30px 0;
 	text-align: center;
 }
 
@@ -190,6 +190,10 @@ a.btn-link:active {
 	text-align: right;
 	text-transform: uppercase;
 	color: $footer-txt-color;
+}
+
+#footer p {
+	margin: 0 10px;
 }
 
 /* Media Queries */
@@ -245,6 +249,10 @@ a.btn-link:active {
 		position: static;
 		text-align: left;
 		background-color: $footer-bgcolor;
+	}
+
+	#footer p {
+		margin: 0;
 	}
 }
 
