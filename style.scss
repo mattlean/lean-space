@@ -7,7 +7,7 @@ $link-active-color: #0a302e;
 $navbar-width: 230px;
 $navbar-bgcolor: #1d1d20;
 
-$content-max-width: 960px;
+$content-max-width: 940px;
 
 $navbar-link-color: #babbbd;
 $navbar-hover-color: #fff;
@@ -132,7 +132,6 @@ a#logo:active {
 
 /* Content Area */
 #content {
-	box-sizing: border-box;
 	max-width: $content-max-width;
 	padding: 10px 10px 10px $navbar-width + 30;
 }
