@@ -2,6 +2,7 @@ var btnMobileMenu = document.getElementById('btn-mobile-menu');
 var mobileMenu = document.getElementById('mobile-menu');
 var domParser = new DOMParser();
 
+/* Opens and closes mobile nav menu */
 function toggleMobileMenu() {
 	smmClassName = 'show-mobile-menu';
 
@@ -12,6 +13,7 @@ function toggleMobileMenu() {
 	}
 }
 
+/* Gets path from anchor href */
 function getPath(href) {
 	var splitHref = href.split('/');
 	var path = '/';
@@ -28,7 +30,7 @@ function getPath(href) {
 	return path;
 }
 
-/* Swap content without page refresh */
+/* Swap content without page refresh on link click */
 function swapContent(path) {
 	var req = new XMLHttpRequest();
 
@@ -41,11 +43,13 @@ function swapContent(path) {
 
 	if(req.status === 200) {
 		console.log('Download succeeded.');
-		var xmlDoc = domParser.parseFromString(req.responseText, 'text/html');
-		var content = xmlDoc.getElementById('content');
-		
-		document.getElementById('content').innerHTML = content.innerHTML;
-		applyLinkMods(document.getElementsByTagName('a'));
+		// Takes content div from dl'd HTML doc and replaces current page's content div with it
+		var docHtml = domParser.parseFromString(req.responseText, 'text/html');
+		var eleContent = docHtml.getElementById('content');
+		var content = document.getElementById('content');
+
+		content.innerHTML = eleContent.innerHTML;
+		applyLinkMods(content.getElementsByTagName('a'));
 		
 		return true;
 	}
@@ -55,7 +59,7 @@ function swapContent(path) {
 	return false;
 }
 
-/* Cover back button case */
+/* Swap content without page refresh on back btn press */
 window.addEventListener('popstate', function(e) {
 	swapContent(location.pathname);
 });
