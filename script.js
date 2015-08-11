@@ -47,9 +47,11 @@ function swapContent(path) {
 		var docHtml = domParser.parseFromString(req.responseText, 'text/html');
 		var eleContent = docHtml.getElementById('content');
 		var content = document.getElementById('content');
+		var title = docHtml.getElementsByTagName('title')[0].textContent;
 
 		content.innerHTML = eleContent.innerHTML;
-		applyLinkMods(content.getElementsByTagName('a'));
+		applyLinkMods(content.getElementsByTagName('a')); // reapply linkMod to newly dl'd content
+		document.title = title; // update page title
 		
 		return true;
 	}
