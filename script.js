@@ -25,7 +25,6 @@ function getPath(href) {
 		}
 	}
 
-	console.log('get path called');
 	return path;
 }
 
@@ -42,16 +41,15 @@ function swapContent(path) {
 
 	if(req.status === 200) {
 		console.log('Download succeeded.');
-		console.log(req.responseText);
 		var xmlDoc = domParser.parseFromString(req.responseText, 'text/html');
-		console.log(xmlDoc);
 		var content = xmlDoc.getElementById('content');
-		console.log(content);
+		
 		document.getElementById('content').innerHTML = content.innerHTML;
-		linkMod(document.getElementById('test3'));
+		applyLinkMods(document.getElementsByTagName('a'));
 		
 		return true;
 	}
+
 	// render error screens here
 	console.log('Download failed.');
 	return false;
@@ -71,11 +69,27 @@ function linkMod(link) {
 	}, false);
 }
 
+/* Checks to see if link is external */
+function isInternalLink(link) {
+	var splitLink = link.href.split('/');
+
+	if(splitLink[0] === 'http:') {
+		if((splitLink[2] === location.host) || (splitLink[2] === location.hostname)) {
+			return true;
+		}
+	}
+	return false;
+}
+
+/* Applies linkMod() to links within host */
+function applyLinkMods(allLinks) {
+	for(var i = 0; i < allLinks.length; ++i) {
+		if(isInternalLink(allLinks[i])) {
+			linkMod(allLinks[i]);
+		}
+	}
+}
+
 /* Main */
 btnMobileMenu.addEventListener('click', toggleMobileMenu);
-
-linkMod(document.getElementById('test'));
-linkMod(document.getElementById('test2'));
-linkMod(document.getElementById('test3'));
-linkMod(document.getElementById('test4'));
-linkMod(document.getElementById('test5'));
+applyLinkMods(document.getElementsByTagName('a'));
