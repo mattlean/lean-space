@@ -1,5 +1,6 @@
 var btnMobileMenu = document.getElementById('btn-mobile-menu');
 var mobileMenu = document.getElementById('mobile-menu');
+var domParser = new DOMParser();
 
 function toggleMobileMenu() {
 	smmClassName = 'show-mobile-menu';
@@ -41,17 +42,23 @@ function swapContent(path) {
 
 	if(req.status === 200) {
 		console.log('Download succeeded.');
-		//console.log(req.responseText);
-		document.getElementById('content').innerHTML = req.responseText;
+		console.log(req.responseText);
+		var xmlDoc = domParser.parseFromString(req.responseText, 'text/html');
+		console.log(xmlDoc);
+		var content = xmlDoc.getElementById('content');
+		console.log(content);
+		document.getElementById('content').innerHTML = content.innerHTML;
+		linkMod(document.getElementById('test3'));
+		
 		return true;
 	}
+	// render error screens here
 	console.log('Download failed.');
 	return false;
 }
 
 /* Cover back button case */
 window.addEventListener('popstate', function(e) {
-	console.log(location.pathname);
 	swapContent(location.pathname);
 });
 
@@ -70,3 +77,5 @@ btnMobileMenu.addEventListener('click', toggleMobileMenu);
 linkMod(document.getElementById('test'));
 linkMod(document.getElementById('test2'));
 linkMod(document.getElementById('test3'));
+linkMod(document.getElementById('test4'));
+linkMod(document.getElementById('test5'));
