@@ -1,5 +1,6 @@
 var btnMobileMenu = document.getElementById('btn-mobile-menu');
 var mobileMenu = document.getElementById('mobile-menu');
+var content = document.getElementById('content');
 var domParser = new DOMParser();
 
 /* Opens and closes mobile nav menu */
@@ -11,6 +12,14 @@ function toggleMobileMenu() {
 	} else {
 		mobileMenu.className = smmClassName;
 	}
+}
+
+function showLoad() {
+	content.className = 'load';
+}
+
+function hideLoad() {
+	content.className = '';
 }
 
 /* Gets path from anchor href */
@@ -32,33 +41,40 @@ function getPath(href) {
 
 /* Swap content without page refresh on link click */
 function swapContent(path) {
-	var req = new XMLHttpRequest();
+	var xhr = new XMLHttpRequest();
 
 	console.log('Downloading "' + path + '".');
-	req.open('GET',
-			path,
-			false
-		);
-	req.send();
+	xhr.open('GET', path, true);
+	xhr.onload = function(e) {
+		if(xhr.status === 200) {
+			console.log('Download succeeded.');
+			// Takes content div from dl'd HTML doc and replaces current page's content div with it
+			var docHtml = domParser.parseFromString(xhr.responseText, 'text/html');
+			var eleContent = docHtml.getElementById('content');
+			var title = docHtml.getElementsByTagName('title')[0].textContent;
 
-	if(req.status === 200) {
-		console.log('Download succeeded.');
-		// Takes content div from dl'd HTML doc and replaces current page's content div with it
-		var docHtml = domParser.parseFromString(req.responseText, 'text/html');
-		var eleContent = docHtml.getElementById('content');
-		var content = document.getElementById('content');
-		var title = docHtml.getElementsByTagName('title')[0].textContent;
-
-		content.innerHTML = eleContent.innerHTML;
-		applyLinkMods(content.getElementsByTagName('a')); // reapply linkMod to newly dl'd content
-		document.title = title; // update page title
-		
-		return true;
+			content.innerHTML = eleContent.innerHTML;
+			applyLinkMods(content.getElementsByTagName('a')); // reapply linkMod to newly dl'd content
+			document.title = title; // update page title
+			hideLoad();
+		} else {
+			console.error(xhr.statusText)
+			//render error page
+		}
 	}
 
-	// render error screens here
-	console.log('Download failed.');
-	return false;
+	xhr.onprogress = function(e) {
+		if(xhr.readyState === 1) {
+			console.log('loading123');
+		}
+	}
+
+	xhr.onerror = function(e) {
+		console.error(xhr.statusText);
+		//render error page
+	}
+	//need to cover timeout case?
+	xhr.send(null);
 }
 
 /* Swap content without page refresh on back btn press */
@@ -69,6 +85,7 @@ window.addEventListener('popstate', function(e) {
 function linkMod(link) {
 	link.addEventListener('click', function(e) {
 		var path = getPath(link.href);
+		showLoad();
 		swapContent(path);
 		history.pushState(null, null, link.href);
 		e.preventDefault();

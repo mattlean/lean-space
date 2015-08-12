@@ -134,6 +134,12 @@ a#logo:active {
 #content {
 	max-width: $content-max-width;
 	padding: 10px 10px 10px $navbar-width + 30;
+	opacity: 1;
+	transition: opacity .1s ease-out;
+}
+
+#content.load {
+	opacity: 0;
 }
 
 #front-title {
