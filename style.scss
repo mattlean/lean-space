@@ -185,6 +185,14 @@ a.btn-link:active {
 	vertical-align: middle;
 }
 
+.work-item div {
+	width: 302px;
+	height: 210px;
+	margin: 0 10px 10px 0;
+	float: left;
+	background-color: red;
+}
+
 #footer {
 	box-sizing: border-box;
 	width: $navbar-width;
