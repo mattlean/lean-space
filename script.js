@@ -102,10 +102,12 @@ window.addEventListener('popstate', function(e) {
 
 function linkMod(link) {
 	link.addEventListener('click', function(e) {
-		startLoad();
-		gCurrPath = getPath(link.href);
-		history.pushState(null, null, link.href);
-		e.preventDefault();
+		if(e.button === 0) {
+			startLoad();
+			gCurrPath = getPath(link.href);
+			history.pushState(null, null, link.href);
+			e.preventDefault();
+		}
 	}, false);
 }
 
