@@ -1,7 +1,11 @@
 var btnMobileMenu = document.getElementById('btn-mobile-menu');
 var mobileMenu = document.getElementById('mobile-menu');
 var content = document.getElementById('content');
+
 var domParser = new DOMParser();
+
+var gLoad = false; //true when new page is downloading, false otherwise
+var gCurrPath; //path from most recently clicked link
 
 /* Opens and closes mobile nav menu */
 function toggleMobileMenu() {
@@ -14,12 +18,18 @@ function toggleMobileMenu() {
 	}
 }
 
-function showLoad() {
+/* Hides content during loading */
+function startLoad() {
+	gLoad = true;
 	content.className = 'load';
+	//display loading icon
 }
 
-function hideLoad() {
+/* Stops loading and reveals new content */
+function finishLoad() {
+	gLoad = false;
 	content.className = '';
+	//display loading icon
 }
 
 /* Gets path from anchor href */
@@ -56,7 +66,7 @@ function swapContent(path) {
 			content.innerHTML = eleContent.innerHTML;
 			applyLinkMods(content.getElementsByTagName('a')); // reapply linkMod to newly dl'd content
 			document.title = title; // update page title
-			hideLoad();
+			finishLoad();
 		} else {
 			console.error(xhr.statusText)
 			//render error page
@@ -65,7 +75,7 @@ function swapContent(path) {
 
 	xhr.onprogress = function(e) {
 		if(xhr.readyState === 1) {
-			console.log('loading123');
+			console.log('Download in progress...');
 		}
 	}
 
@@ -77,6 +87,12 @@ function swapContent(path) {
 	xhr.send(null);
 }
 
+content.addEventListener('transitionend', function(e) {
+	if(e['propertyName'] === 'opacity' && gLoad === true) {
+		swapContent(gCurrPath);
+	}
+}, true);
+
 /* Swap content without page refresh on back btn press */
 window.addEventListener('popstate', function(e) {
 	swapContent(location.pathname);
@@ -84,9 +100,8 @@ window.addEventListener('popstate', function(e) {
 
 function linkMod(link) {
 	link.addEventListener('click', function(e) {
-		var path = getPath(link.href);
-		showLoad();
-		swapContent(path);
+		startLoad();
+		gCurrPath = getPath(link.href);
 		history.pushState(null, null, link.href);
 		e.preventDefault();
 	}, false);
