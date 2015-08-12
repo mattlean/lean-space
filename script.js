@@ -53,7 +53,7 @@ function getPath(href) {
 function swapContent(path) {
 	var xhr = new XMLHttpRequest();
 
-	console.log('Downloading "' + path + '".');
+	console.log('Started download for "' + path + '".');
 	xhr.open('GET', path, true);
 	xhr.onload = function(e) {
 		if(xhr.status === 200) {
@@ -66,11 +66,12 @@ function swapContent(path) {
 			content.innerHTML = eleContent.innerHTML;
 			applyLinkMods(content.getElementsByTagName('a')); // reapply linkMod to newly dl'd content
 			document.title = title; // update page title
-			finishLoad();
 		} else {
 			console.error(xhr.statusText)
 			//render error page
 		}
+
+		finishLoad();
 	}
 
 	xhr.onprogress = function(e) {
@@ -81,6 +82,7 @@ function swapContent(path) {
 
 	xhr.onerror = function(e) {
 		console.error(xhr.statusText);
+		finishLoad();
 		//render error page
 	}
 	//need to cover timeout case?
