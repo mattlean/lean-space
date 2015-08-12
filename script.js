@@ -4,8 +4,8 @@ var content = document.getElementById('content');
 
 var domParser = new DOMParser();
 
-var gLoad = false; //true when new page is downloading, false otherwise
-var gCurrPath; //path from most recently clicked link
+var gLoad = false; // true when new page is downloading, false otherwise
+var gCurrPath; // path from most recently clicked link
 
 /* Opens and closes mobile nav menu */
 function toggleMobileMenu() {
@@ -30,6 +30,18 @@ function finishLoad() {
 	gLoad = false;
 	content.className = '';
 	//display loading icon
+}
+
+/* Checks to see if link is external */
+function isInternalLink(link) {
+	var splitLink = link.href.split('/');
+
+	if(splitLink[0] === 'http:') {
+		if((splitLink[2] === location.host) || (splitLink[2] === location.hostname)) {
+			return true;
+		}
+	}
+	return false;
 }
 
 /* Gets path from anchor href */
@@ -89,17 +101,14 @@ function swapContent(path) {
 	xhr.send(null);
 }
 
-content.addEventListener('transitionend', function(e) {
-	if(e['propertyName'] === 'opacity' && gLoad === true) {
-		swapContent(gCurrPath);
-	}
-}, true);
+
 
 /* Swap content without page refresh on back btn press */
 window.addEventListener('popstate', function(e) {
 	swapContent(location.pathname);
 });
 
+/* Applies custom content swap functionality to link */
 function linkMod(link) {
 	link.addEventListener('click', function(e) {
 		if(e.button === 0) {
@@ -111,19 +120,7 @@ function linkMod(link) {
 	}, false);
 }
 
-/* Checks to see if link is external */
-function isInternalLink(link) {
-	var splitLink = link.href.split('/');
-
-	if(splitLink[0] === 'http:') {
-		if((splitLink[2] === location.host) || (splitLink[2] === location.hostname)) {
-			return true;
-		}
-	}
-	return false;
-}
-
-/* Applies linkMod() to links within host */
+/* Applies linkMod() to internal links only */
 function applyLinkMods(allLinks) {
 	for(var i = 0; i < allLinks.length; ++i) {
 		if(isInternalLink(allLinks[i])) {
@@ -133,5 +130,11 @@ function applyLinkMods(allLinks) {
 }
 
 /* Main */
+// swapContent() after content fade out animation completes
+content.addEventListener('transitionend', function(e) {
+	if(e['propertyName'] === 'opacity' && gLoad === true) {
+		swapContent(gCurrPath);
+	}
+}, true);
 btnMobileMenu.addEventListener('click', toggleMobileMenu);
 applyLinkMods(document.getElementsByTagName('a'));
