@@ -17,7 +17,7 @@ $footer-txt-color: #999;
 
 /* General */
 body {
-	background: $bgcolor url('/img/noise.png');
+	background: $bgcolor url('/img/bg.jpg') repeat-x top;
 	color: $font-color;
 	font: 18px 'Open Sans', Helvetica, Arial, sans-serif;
 }
@@ -132,14 +132,51 @@ a#logo:active {
 
 /* Content Area */
 #content {
-	max-width: $content-max-width;
-	padding: 10px 10px 10px $navbar-width + 30;
+	margin-left: $navbar-width;
 	opacity: 1;
 	transition: opacity .1s ease-out;
 }
 
 #content.load {
 	opacity: 0;
+}
+
+.main {
+	max-width: $content-max-width;
+	padding: 10px 10px 10px 24px;
+	margin: 0 auto;
+}
+
+.cover {
+	width: 100%;
+	height: 850px;
+	text-align: center;
+	position: relative;
+	background: url('/img/cover/space-desk-workspace-coworking.jpg') no-repeat center;
+	background-size: cover;
+}
+
+.cover h1 {
+	margin: 0 auto;
+	position: absolute;
+	top: 50%;
+	right: 0;
+	left: 0;
+	font-size: 48px;
+	color: #fff;
+	text-shadow: 3px 3px rgba(0,0,0,0.3);
+}
+
+.cover p {
+	margin: 0 auto;
+	position: absolute;
+	top: 60%;
+	right: 0;
+	left: 0;
+	font-weight: bold;
+	color: #ddd;
+	text-shadow: 3px 3px rgba(0,0,0,0.3);
+	text-transform: uppercase;
 }
 
 #front-title {
@@ -186,25 +223,25 @@ a.btn-link:active {
 }
 
 #filter {
+	height: 100%;
+	margin-bottom: 10px;
+	border: 1px solid #d2d6d5;
 	font-size: 14px;
 }
 
-#filter h1 {
-	clear: both;
+#filter h2 {
+	clear: left;
+}
+
+#filter ul {
+	padding-left: 0;
 }
 
 #filter li {
 	margin: 0 4px 10px;
+	padding: 6px 10px;
 	float: left;
-	display: block;
-}
-
-#filter input {
-	margin-left: 20px;
-}
-
-#filter label {
-	padding: 6px;
+	display: inline;
 	text-transform: uppercase;
 	background-color: $link-color;
 	color: $navbar-hover-color;
@@ -212,12 +249,17 @@ a.btn-link:active {
 	transition: background-color .15s;
 }
 
-#filter input[type='checkbox']:checked + label {
-    background-color: $link-active-color;
+#filter li:hover {
+	background-color: $link-hover-color;
 }
 
-#filter label:hover {
-	background-color: $link-hover-color;
+#filter span.hack {
+	clear: both;
+	display: block;
+}
+
+#gallery {
+	clear: left;
 }
 
 .work-item div {
@@ -300,6 +342,7 @@ a.btn-link:active {
 	}
 
 	#content {
+		margin: 0 auto;
 		padding: 50px 10px 10px;
 		background: $bgcolor;
 		background-image: url('/img/noise.png');
