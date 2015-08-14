@@ -147,32 +147,36 @@ a#logo:active {
 	margin: 0 auto;
 }
 
+.stretch-area {
+	margin-bottom: 10px;
+	background-color: #aaa;
+}
+
 .cover {
 	width: 100%;
 	height: 850px;
+	margin-bottom: 10px;
 	text-align: center;
 	position: relative;
 	background: url('/img/cover/space-desk-workspace-coworking.jpg') no-repeat center;
 	background-size: cover;
 }
 
-.cover h1 {
+#cover-text {
 	margin: 0 auto;
 	position: absolute;
-	top: 50%;
+	top: 45%;
 	right: 0;
 	left: 0;
+}
+
+#cover-text h1 {
 	font-size: 48px;
 	color: #fff;
 	text-shadow: 3px 3px rgba(0,0,0,0.3);
 }
 
-.cover p {
-	margin: 0 auto;
-	position: absolute;
-	top: 60%;
-	right: 0;
-	left: 0;
+#cover-text p {
 	font-weight: bold;
 	color: #ddd;
 	text-shadow: 3px 3px rgba(0,0,0,0.3);
@@ -222,40 +226,36 @@ a.btn-link:active {
 	vertical-align: middle;
 }
 
+.filter-style {
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #666;
+}
+
 #filter {
-	height: 100%;
-	margin-bottom: 10px;
-	border: 1px solid #d2d6d5;
 	font-size: 14px;
 }
 
-#filter h2 {
-	clear: left;
+#filter ul {
+	margin: 0 0;
+	padding: 0 0;
+	display: inline;
 }
 
-#filter ul {
-	padding-left: 0;
+#filter li:first-child {
+	border-left: 1px solid #666;
 }
 
 #filter li {
-	margin: 0 4px 10px;
-	padding: 6px 10px;
-	float: left;
+	padding: 10px 14px 10px 8px;
+	border-right: 1px solid #666;
 	display: inline;
+	font-weight: bold;
 	text-transform: uppercase;
-	background-color: $link-color;
-	color: $navbar-hover-color;
-	text-align: center;
-	transition: background-color .15s;
+	transition: background-color 0.2s ease-out;
 }
 
 #filter li:hover {
-	background-color: $link-hover-color;
-}
-
-#filter span.hack {
-	clear: both;
-	display: block;
+	background-color: $link-color;
 }
 
 #gallery {
