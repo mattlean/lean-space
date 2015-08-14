@@ -262,13 +262,13 @@ a.btn-link:active {
 	clear: left;
 }
 
-.work-item div {
+.work-item {
 	width: 302px;
 	height: 210px;
 	margin: 0 10px 10px 0;
 	float: left;
 	position: relative;
-	background-color: red;
+	transition: all 3s ease-out;
 }
 
 .work-item span {
@@ -288,6 +288,20 @@ a.btn-link:active {
 	bottom: 0;
 	left: 0;
 	background-color: black;
+}
+
+.test {
+	width: 0;
+	height: 0;
+	opacity: 0;
+}
+
+.test, .test img, .test span {
+	width: 0;
+	height: 0;
+	margin: 0;
+	padding: 0;
+	opacity: 0;
 }
 
 #footer {

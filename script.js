@@ -9,6 +9,7 @@ var gCurrPath; // path from most recently clicked link
 
 /* Opens and closes mobile nav menu */
 function toggleMobileMenu() {
+	console.log('test');
 	smmClassName = 'show-mobile-menu';
 
 	if(mobileMenu.className === smmClassName) {
@@ -101,13 +102,6 @@ function swapContent(path) {
 	xhr.send(null);
 }
 
-
-
-/* Swap content without page refresh on back btn press */
-window.addEventListener('popstate', function(e) {
-	swapContent(location.pathname);
-});
-
 /* Applies custom content swap functionality to link */
 function linkMod(link) {
 	link.addEventListener('click', function(e) {
@@ -129,12 +123,18 @@ function applyLinkMods(allLinks) {
 	}
 }
 
-/* Main */
 // swapContent() after content fade out animation completes
 content.addEventListener('transitionend', function(e) {
 	if(e['propertyName'] === 'opacity' && gLoad === true) {
 		swapContent(gCurrPath);
 	}
 }, true);
+
+/* Swap content without page refresh on back btn press */
+window.addEventListener('popstate', function(e) {
+	swapContent(location.pathname);
+});
+
+/* Main */
 btnMobileMenu.addEventListener('click', toggleMobileMenu);
 applyLinkMods(document.getElementsByTagName('a'));
