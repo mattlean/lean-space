@@ -22,14 +22,20 @@ var msnry = new Masonry(gallery, {
 function startFilter() {
 	console.log('startFilter');
 	for(var i = 0; i < workItems.length; ++i) {
-		if(filterState['game'] === true && workItems[i].dataset.cat === 'game') {
-			workItems[i].className = defaultClass;
-		} else if(filterState['webapp'] === true && workItems[i].dataset.cat === 'webapp') {
-			workItems[i].className = defaultClass;
-		} else if(filterState['website'] === true && workItems[i].dataset.cat === 'website') {
-			workItems[i].className = defaultClass;
-		} else {
-			workItems[i].className = hideClass;
+		var itemCats = workItems[i].dataset.cat.split(' ');
+		for(var j = 0; j < itemCats.length; ++ j) {
+			if(filterState['game'] === true && itemCats[j] === 'game') {
+				workItems[i].className = defaultClass;
+				break;
+			} else if(filterState['webapp'] === true && itemCats[j] === 'webapp') {
+				workItems[i].className = defaultClass;
+				break;
+			} else if(filterState['website'] === true && itemCats[j] === 'website') {
+				workItems[i].className = defaultClass;
+				break;
+			} else {
+				workItems[i].className = hideClass;
+			}
 		}
 	}
 

@@ -9,7 +9,6 @@ var gCurrPath; // path from most recently clicked link
 
 /* Opens and closes mobile nav menu */
 function toggleMobileMenu() {
-	console.log('test');
 	smmClassName = 'show-mobile-menu';
 
 	if(mobileMenu.className === smmClassName) {
