@@ -2,6 +2,7 @@ var workItems = document.getElementsByClassName('work-item');
 var catGame = document.getElementById('catGame');
 var catWebapp = document.getElementById('catWebapp');
 var catWebsite = document.getElementById('catWebsite');
+var gallery = document.getElementById('gallery');
 
 var filterState = {
 	'game': false,
@@ -44,6 +45,19 @@ function setFilter(dataAttr) {
 	
 	filter();
 }
+
+
+var msnry = new Masonry(gallery, {
+	// options
+	itemSelector: '.work-item',
+	columnWidth: 312
+});
+
+// element argument can be a selector string
+//   for an individual element
+var msnry = new Masonry('#gallery', {
+	// options
+});
 
 
 catGame.addEventListener('click', setFilter);

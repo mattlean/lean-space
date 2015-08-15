@@ -268,7 +268,8 @@ a.btn-link:active {
 	margin: 0 10px 10px 0;
 	float: left;
 	position: relative;
-	transition: all 3s ease-out;
+	background-color: red;
+	transition: opacity 3s ease-out;
 }
 
 .work-item span {
@@ -291,16 +292,6 @@ a.btn-link:active {
 }
 
 .test {
-	width: 0;
-	height: 0;
-	opacity: 0;
-}
-
-.test, .test img, .test span {
-	width: 0;
-	height: 0;
-	margin: 0;
-	padding: 0;
 	opacity: 0;
 }
 

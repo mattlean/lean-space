@@ -7,6 +7,7 @@
   ],
   "license": "N/A",
   "dependencies": {
-    "normalize.css": "~3.0.3"
+    "normalize.css": "~3.0.3",
+    "masonry": "~3.3.1"
   }
 }
