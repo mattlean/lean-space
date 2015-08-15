@@ -79,7 +79,11 @@ function swapContent(path) {
 			applyLinkMods(content.getElementsByTagName('a')); // reapply linkMod to newly dl'd content
 			document.title = title; // update page title
 			if(path === '/work.html') {
-				document.body.appendChild(document.createElement('script')).src='/filter.js';
+				var pageScript = document.getElementById('page-script');
+				document.body.removeChild(pageScript);
+				pageScript = document.body.appendChild(document.createElement('script'));
+				pageScript.src = '/filter.js';
+				pageScript.setAttribute('id', 'page-script');
 			}
 		} else {
 			console.error(xhr.statusText)
