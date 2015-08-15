@@ -9,22 +9,46 @@ var filterState = {
 	'webapp': false,
 	'website': false
 };
+var defaultClass = 'work-item';
+var hideClass = 'work-item hide';
+var ghostClass = 'work-item hide ghost';
 
-function filter() {
+var msnry = new Masonry(gallery, {
+	// options
+	itemSelector: '.work-item',
+	columnWidth: 312
+});
+
+function startFilter() {
+	console.log('startFilter');
 	for(var i = 0; i < workItems.length; ++i) {
 		if(filterState['game'] === true && workItems[i].dataset.cat === 'game') {
-			workItems[i].className = 'work-item';
+			workItems[i].className = defaultClass;
 		} else if(filterState['webapp'] === true && workItems[i].dataset.cat === 'webapp') {
-			workItems[i].className = 'work-item';
+			workItems[i].className = defaultClass;
 		} else if(filterState['website'] === true && workItems[i].dataset.cat === 'website') {
-			workItems[i].className = 'work-item';
+			workItems[i].className = defaultClass;
 		} else {
-			workItems[i].className = 'work-item test';
+			workItems[i].className = hideClass;
 		}
 	}
+
+	window.setTimeout(endFilter, 500);
+}
+
+function endFilter() {
+	console.log('endFilter');
+	for(var i = 0; i < workItems.length; ++i) {
+		if(workItems[i].className === hideClass) {
+			workItems[i].className = ghostClass;
+		}
+	}
+
+	msnry.layout();
 }
 
 function setFilter(dataAttr) {
+	console.log('called');
 	if(catGame.checked === true) {
 		filterState['game'] = true;
 	} else {
@@ -43,22 +67,8 @@ function setFilter(dataAttr) {
 		filterState['website'] = false;
 	}
 	
-	filter();
+	startFilter();
 }
-
-
-var msnry = new Masonry(gallery, {
-	// options
-	itemSelector: '.work-item',
-	columnWidth: 312
-});
-
-// element argument can be a selector string
-//   for an individual element
-var msnry = new Masonry('#gallery', {
-	// options
-});
-
 
 catGame.addEventListener('click', setFilter);
 catWebapp.addEventListener('click', setFilter);

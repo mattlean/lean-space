@@ -269,7 +269,7 @@ a.btn-link:active {
 	float: left;
 	position: relative;
 	background-color: red;
-	transition: opacity 3s ease-out;
+	transition: opacity 0.5s ease-out;
 }
 
 .work-item span {
@@ -291,8 +291,12 @@ a.btn-link:active {
 	background-color: black;
 }
 
-.test {
+.hide {
 	opacity: 0;
+}
+
+.ghost {
+	display: none;
 }
 
 #footer {
