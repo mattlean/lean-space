@@ -78,6 +78,9 @@ function swapContent(path) {
 			content.innerHTML = eleContent.innerHTML;
 			applyLinkMods(content.getElementsByTagName('a')); // reapply linkMod to newly dl'd content
 			document.title = title; // update page title
+			if(path === '/work.html') {
+				document.body.appendChild(document.createElement('script')).src='/filter.js';
+			}
 		} else {
 			console.error(xhr.statusText)
 			//render error page
