@@ -97,8 +97,12 @@ ul {
 }
 
 #navbar li {
-	padding: 10px 0;
 	border-bottom: 1px solid #393939;
+	transition: all 0.5s cubic-bezier(0,1,.8,1);
+}
+
+#navbar li:hover {
+	padding-left: 10px;
 }
 
 #navbar li:last-child {
@@ -106,12 +110,15 @@ ul {
 }
 
 #navbar li a {
+	padding: 10px 0;
 	display: block;
-	background-image: linear-gradient(to right, $link-color 50%, $navbar-bgcolor 50%);
-	background-position: 100%;
-	background-size: 200% 100%;
 	letter-spacing: 4px;
 	color: $navbar-link-color;
+}
+
+#navbar li a:hover {
+	color: #fff;
+	text-decoration: none;
 }
 
 #navbar button {
