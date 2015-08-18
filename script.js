@@ -1,3 +1,5 @@
+var navbar = document.getElementById('navbar');
+var footer = document.getElementById('footer');
 var btnMobileMenu = document.getElementById('btn-mobile-menu');
 var mobileMenu = document.getElementById('mobile-menu');
 var content = document.getElementById('content');
@@ -112,6 +114,8 @@ function swapContent(path) {
 function linkMod(link) {
 	link.addEventListener('click', function(e) {
 		if(e.button === 0) {
+			navbar.className = ''; // reveal navbar if it's hiding
+			footer.className = ''; // reveal footer if it's hiding
 			startLoad();
 			gCurrPath = getPath(link.href);
 			history.pushState(null, null, link.href);
