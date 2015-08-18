@@ -1,11 +1,11 @@
-$bgcolor: #fafafa;
+$bgcolor: #eee;
 $font-color: #000;
 $link-color: #3ebac1;
 $link-hover-color: #43625c;
 $link-active-color: #0a302e;
 
-$navbar-width: 230px;
-$navbar-bgcolor: #1d1d20;
+$navbar-width: 220px;
+$navbar-bgcolor: #292c31;
 
 $content-max-width: 940px;
 
@@ -15,9 +15,11 @@ $navbar-hover-color: #fff;
 $footer-bgcolor: #2e2e33;
 $footer-txt-color: #999;
 
+$turquoise: #3dbbc2;
+
 /* General */
 body {
-	background: $bgcolor url('/img/bg.jpg') repeat-x top;
+	background: $bgcolor url('/img/bg.png');
 	color: $font-color;
 	font: 18px 'Open Sans', Helvetica, Arial, sans-serif;
 }
@@ -57,62 +59,59 @@ ul {
 #navbar {
 	box-sizing: border-box;
 	width: $navbar-width;
-	padding: 10px 20px 10px 0;
+	padding: 10px 20px;
 	position: fixed;
 	top: 0;
 	bottom: 0;
 	left: 0;
-	text-align: right;
 	background-color: $navbar-bgcolor;
 }
 
 #logo {
-	margin-right: 10px;
-	font: italic 48px 'Exo', Helvetica, Arial, sans-serif;
+	margin-bottom: 10px;
+}
+
+#logo a {
+	font: italic 48px 'Exo', Arial, sans-serif;
 	letter-spacing: 2px;
 }
 
-a#logo, a#logo:link, a#logo:visited {
-	color: #fff;
+#logo a, #logo a:link, #logo a:visited {
+	color: $turquoise;
 }
 
-a#logo:hover {
-	color: $link-color;
+#logo a:hover {
 	text-decoration: none;
 }
 
-a#logo:active {
-	color: $link-active-color;
+#navbar-content {
+	width: 150px;
+	margin: 0 auto;
 }
 
 #navbar ul {
-	margin-top: 10px;
 	padding: 0;
-	font-size: 16px;
+	font: 14px 'Open Sans Condensed', Arial, sans-serif;;
 	list-style-type: none;
 	text-transform: uppercase;
 }
 
+#navbar li {
+	padding: 10px 0;
+	border-bottom: 1px solid #393939;
+}
+
+#navbar li:last-child {
+	border-bottom: 0;
+}
+
 #navbar li a {
-	padding: 8px 10px 8px 0;
 	display: block;
 	background-image: linear-gradient(to right, $link-color 50%, $navbar-bgcolor 50%);
 	background-position: 100%;
 	background-size: 200% 100%;
-	font-size: 14px;
 	letter-spacing: 4px;
 	color: $navbar-link-color;
-	transition: color .1s ease-out, background-position .15s ease-out;
-}
-
-#navbar li a:hover {
-	background-position: 0;
-	color: $navbar-hover-color;
-	text-decoration: none;
-}
-
-#navbar li a:active {
-	background-image: linear-gradient(to right, $link-active-color 50%, $navbar-bgcolor 50%);
 }
 
 #navbar button {
@@ -302,7 +301,7 @@ a.btn-link:active {
 	box-sizing: border-box;
 	width: $navbar-width;
 	padding: 10px 20px;
-	font-size: 14px;
+	font-size: 12px;
 	position: fixed;
 	bottom: 0;
 	text-align: right;
@@ -378,10 +377,4 @@ a.btn-link:active {
 /* Utility Classes */
 #navbar ul.show-mobile-menu {
 	display: block;
-}
-
-#navbar li a.link-highlight {
-	background: none;
-	background-color: $link-active-color;
-	color: $navbar-hover-color;
 }
