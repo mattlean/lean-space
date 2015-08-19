@@ -372,7 +372,7 @@ a.btn-link:active {
 	clear: left;
 }
 
-.work-item {
+div.work-item {
 	width: 310px;
 	height: 230px;
 	margin: 0 10px 10px 0;
@@ -382,30 +382,72 @@ a.btn-link:active {
 	overflow: hidden;
 }
 
-.work-item span {
+div.work-item span {
 	box-sizing: border-box;
 	width: 310px;
 	height: 230px;
-	padding: 4px 6px;
+	padding: 5px 8px;
 	position: absolute;
 	top: 200px;
 	display: block;
-	font: bold 14px 'Open Sans Condensed', Arial, sans-serif;
-	letter-spacing: 4px;
 	text-align: left;
 	text-transform: uppercase;
 	background-color: $turquoise;
 	color: #fff;
-	transition: top 0.3s cubic-bezier(0,1,.8,1), opacity 0.3s cubic-bezier(0,1,.8,1);
+	transition: top 0.3s cubic-bezier(0,1,.8,1);
 }
 
-.work-item:hover > a > span {
+div.work-item > span > h1 {
+	margin: 0 0 4px;
+	font-size: 14px;
+}
+
+div.work-item > span > p {
+	font-size: 14px;
+	text-transform: none;
+}
+
+div.work-item > span > p.work-item-cat {
+	margin-bottom: 14px;
+	font: 12px 'Open Sans Condensed', Arial, sans-serif;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+
+div.work-item > span > ul {
+	padding: 0;
+	top: 50px;
+	font: bold 14px 'Open Sans Condensed', Arial, sans-serif;
+	letter-spacing: 4px;
+	text-align: center;
+	text-transform: uppercase;
+	list-style-type: none;
+}
+
+div.work-item > span > ul > li > a.btn-overlay-link {
+	box-sizing: border-box;
+	width: 130px;
+	height: 30px;
+	margin: 0 6px;
+	padding: 4px 6px;
+	border: 1px solid $white;
+	display: block;
+	background-image: linear-gradient(to right, $white 50%, rgba(255,255,255,0) 50%);
+	background-position: 100%;
+	background-size: 200% 100%;
+	color: $white;
+	transition: background-position .2s cubic-bezier(0,1,.8,1), color .2s cubic-bezier(0,1,.8,1);
+}
+
+div.work-item > span > ul > li > a.btn-overlay-link:hover {
+	background-position: 0;
+	color: $turquoise;
+	text-decoration: none;
+}
+
+div.work-item:hover > span {
 	top: 0;
 	background-color: rgba(61,187,194,.85);
-}
-
-.work-item a {
-	color: $white;
 }
 
 .hide {
