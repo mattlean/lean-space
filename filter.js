@@ -1,5 +1,6 @@
 var workItems = document.getElementsByClassName('work-item');
 var catGame = document.getElementById('catGame');
+var catMobileapp = document.getElementById('catMobileapp');
 var catWebapp = document.getElementById('catWebapp');
 var catWebsite = document.getElementById('catWebsite');
 var gallery = document.getElementById('gallery');
@@ -7,7 +8,8 @@ var gallery = document.getElementById('gallery');
 var filterState = {
 	'game': false,
 	'webapp': false,
-	'website': false
+	'website': false,
+	'mobileapp': false
 };
 var defaultClass = 'work-item';
 var hideClass = 'work-item hide';
@@ -20,11 +22,13 @@ var msnry = new Masonry(gallery, {
 });
 
 function startFilter() {
-	console.log('startFilter');
 	for(var i = 0; i < workItems.length; ++i) {
 		var itemCats = workItems[i].dataset.cat.split(' ');
 		for(var j = 0; j < itemCats.length; ++ j) {
 			if(filterState['game'] === true && itemCats[j] === 'game') {
+				workItems[i].className = defaultClass;
+				break;
+			} else if(filterState['mobileapp'] === true && itemCats[j] === 'mobileapp') {
 				workItems[i].className = defaultClass;
 				break;
 			} else if(filterState['webapp'] === true && itemCats[j] === 'webapp') {
@@ -43,7 +47,6 @@ function startFilter() {
 }
 
 function endFilter() {
-	console.log('endFilter');
 	for(var i = 0; i < workItems.length; ++i) {
 		if(workItems[i].className === hideClass) {
 			workItems[i].className = ghostClass;
@@ -54,11 +57,16 @@ function endFilter() {
 }
 
 function setFilter(dataAttr) {
-	console.log('called');
 	if(catGame.checked === true) {
 		filterState['game'] = true;
 	} else {
 		filterState['game'] = false;
+	}
+
+	if(catMobileapp.checked === true) {
+		filterState['mobileapp'] = true;
+	} else {
+		filterState['mobileapp'] = false;
 	}
 
 	if(catWebapp.checked === true) {
@@ -77,5 +85,6 @@ function setFilter(dataAttr) {
 }
 
 catGame.addEventListener('click', setFilter);
+catMobileapp.addEventListener('click', setFilter);
 catWebapp.addEventListener('click', setFilter);
 catWebsite.addEventListener('click', setFilter);

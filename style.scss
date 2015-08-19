@@ -415,8 +415,8 @@ div.work-item > span > p.work-item-cat {
 }
 
 div.work-item > span > ul {
-	padding: 0;
-	top: 50px;
+	position: absolute;
+	bottom: 0;
 	font: bold 14px 'Open Sans Condensed', Arial, sans-serif;
 	letter-spacing: 4px;
 	text-align: center;
@@ -428,7 +428,7 @@ div.work-item > span > ul > li > a.btn-overlay-link {
 	box-sizing: border-box;
 	width: 130px;
 	height: 30px;
-	margin: 0 6px;
+	margin: 0 6px 10px;
 	padding: 4px 6px;
 	border: 1px solid $white;
 	display: block;
