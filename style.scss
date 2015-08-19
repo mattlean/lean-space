@@ -45,7 +45,7 @@ a:active {
 h1 {
 	font: bold 28px 'Open Sans Condensed', Arial, sans-serif;
 	letter-spacing: 4px;
-	margin: 8px 0 2px;
+	margin: 0px 0 2px;
 	text-transform: uppercase;
 }
 
@@ -155,7 +155,7 @@ nav#navbar.navbar-hide {
 }
 
 .stretch-area {
-	margin: 26px 0 10px;
+	margin: 20px 0 10px;
 	background-color: #d2d2d2;
 }
 
@@ -456,6 +456,31 @@ div.work-item:hover > span {
 
 .ghost {
 	display: none;
+}
+
+div.blog-post {
+	margin-top: 10px;
+	padding-bottom: 4px;
+	border-bottom: 1px solid #a5a5a5;
+}
+
+div.blog-post img {
+	margin: 10px 20px 0 0;
+	float: left;
+}
+
+div.blog-post h1 {
+	margin-top: -10px;
+}
+
+div.blog-post p.post-data {
+	font: bold 14px 'Open Sans Condensed', Arial, sans-serif;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+
+div.main div.blog-post:last-child {
+	border-bottom: 0;
 }
 
 #footer {
