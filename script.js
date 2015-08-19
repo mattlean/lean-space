@@ -80,7 +80,7 @@ function swapContent(path) {
 			content.innerHTML = eleContent.innerHTML;
 			applyLinkMods(content.getElementsByTagName('a')); // reapply linkMod to newly dl'd content
 			document.title = title; // update page title
-			if(path === '/work.html') {
+			if(path === '/work.html' || path === '/work.html#') {
 				var pageScript = document.getElementById('page-script');
 				document.body.removeChild(pageScript);
 				pageScript = document.body.appendChild(document.createElement('script'));
