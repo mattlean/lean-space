@@ -4,21 +4,30 @@
 		<meta charset="utf-8">
 		<title>What It's Like Being an EA Engineer | MattLean.com</title>
 		<link rel="stylesheet" type="text/css" href="/bower_components/normalize.css/normalize.css">
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic|Exo:200italic' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Exo:300italic,300|Open+Sans:400,400italic,700,700italic|Open+Sans+Condensed:300|Inconsolata' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="/style.css">
 	</head>
 	<body>
 		<nav id="navbar">
-			<h1><a href="/" id="logo">Lean</a></h1>
-			<button id="btn-mobile-menu"></button>
-			<ul id="mobile-menu">
-				<li><a href="/">About</a></li>
-				<li><a href="/work.html" class="link-highlight">Work</a></li>
-				<li><a href="/blog.html">Blog</a></li>
-				<li><a href="/contact.html">Contact</a></li>
-			</ul>
+			<div id="navbar-content">
+				<h1 id="logo">Lean</h1>
+				<button id="btn-mobile-menu"></button>
+				<ul id="mobile-menu">
+					<li><a href="/about.html">About</a></li>
+					<li><a href="/work.html">Work</a></li>
+					<li><a href="/resume.html">Resume</a></li>
+					<li><a href="/blog.html">Blog</a></li>
+					<li><a href="/contact.html">Contact</a></li>
+				</ul>
+			</div>
 		</nav>
 		<div id="content">
+			<style>
+				.cover {
+					background: url('/img/cover/space-desk-workspace-coworking.jpg') no-repeat center;
+					background-size: cover;
+				}
+			</style>
 			<div class="cover">
 				<div id="cover-text">
 					<h1>What It's Like Being an EA Engineer</h1>
@@ -155,9 +164,11 @@ There’s a pretty big discussion about this post on reddit now, so if you’re 
 				</div>
 			</div>
 		</div>
-		<div id="footer">
+		<footer id="footer" class="footer-hide">
 			<p>&copy; 2015 Matt Lean</p>
-		</div>
+		</footer>
 		<script src="/script.js"></script>
+		<script src="/bower_components/masonry/dist/masonry.pkgd.min.js"></script>
+		<script src="/filter.js" id="page-script"></script>
 	</body>
 </html>
