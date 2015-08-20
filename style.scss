@@ -153,6 +153,7 @@ nav#navbar.navbar-hide {
 /* Content Area */
 #content {
 	margin-left: $navbar-width;
+	overflow-x: hidden;
 	opacity: 1;
 	transition: opacity .2s ease-out;
 }
@@ -566,6 +567,11 @@ div.resume-cat h2 {
 
 div.resume-cat ul {
 	margin-bottom: 14px;
+}
+
+div.contact-info {
+	margin-top: 40px;
+	text-align: center;
 }
 
 #footer {
