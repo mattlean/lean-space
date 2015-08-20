@@ -507,7 +507,13 @@ div.main div.blog-post:last-child {
 	border-bottom: 0;
 }
 
+p.resume-data {
+	text-transform: uppercase;
+	color: #464646;
+}
+
 div.resume-header {
+	margin-bottom: 10px;
 	text-align: center;
 }
 
@@ -516,8 +522,33 @@ div.resume-header h1 {
 	font-style: italic;
 }
 
+div.resume-header p {
+	margin-bottom: 0;
+	font-size: 16px;
+}
+
 div.resume-cat {
 	margin-bottom: 20px;
+}
+
+div.resume-cat div.big-col {
+	margin-left: 250px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #a5a5a5
+}
+
+div.resume-tech div.big-col:last-child {
+	border-bottom: 0;
+}
+
+div.resume-cat div.small-col {
+	margin-left: 20px;
+	float: left;
+	font-size: 14px;
+}
+
+div.resume-tech div.small-col:first-child {
+	margin-left: 0;
 }
 
 div.resume-cat h2, h3, h4 {
@@ -528,10 +559,8 @@ div.resume-cat h2 {
 	float: left;
 }
 
-div.resume-cat div.big-col {
-	margin-left: 250px;
-	padding-bottom: 10px;
-	border-bottom: 1px solid #a5a5a5
+div.resume-cat ul {
+	margin-bottom: 14px;
 }
 
 #footer {
