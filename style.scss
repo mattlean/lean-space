@@ -23,7 +23,7 @@ $white: #fff;
 body {
 	background: $bgcolor url('/img/bg.png');
 	color: $font-color;
-	font: 18px 'Open Sans', Arial, sans-serif;
+	font: 16px 'Open Sans', Arial, sans-serif;
 }
 
 a, a:link, a:visited, a:hover, a:active {
@@ -513,7 +513,7 @@ p.resume-data {
 }
 
 div.resume-header {
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 	text-align: center;
 }
 
@@ -537,12 +537,17 @@ div.resume-cat div.big-col {
 	border-bottom: 1px solid #a5a5a5
 }
 
-div.resume-tech div.big-col:last-child {
+div.resume-tech div.big-col {
+	clear: left;
 	border-bottom: 0;
 }
 
+div.resume-tech div.resume-tech-first {
+	clear: none;
+}
+
 div.resume-cat div.small-col {
-	margin-left: 20px;
+	width: 355px;
 	float: left;
 	font-size: 14px;
 }
