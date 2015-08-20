@@ -38,14 +38,27 @@ a:hover {
 	text-decoration: underline;
 }
 
-h1 {
+h1, h2, h3, h4 {
 	font: bold 28px 'Open Sans Condensed', Arial, sans-serif;
 	letter-spacing: 4px;
-	margin: 0px 0 2px;
+	margin: 0 0 2px;
 	text-transform: uppercase;
 }
 
-h1 a:hover {
+h2, h3 {
+	font-size: 20px;
+}
+
+h4 {
+	font-size: 18px;
+	text-transform: none;
+}
+
+h3, h4 {
+	letter-spacing: 0;
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover {
 	text-decoration: none;
 }
 
@@ -492,6 +505,33 @@ div.main div.blog-post:first-child {
 
 div.main div.blog-post:last-child {
 	border-bottom: 0;
+}
+
+div.resume-header {
+	text-align: center;
+}
+
+div.resume-header h1 {
+	font-family: 'Exo', Arial, sans-serif;
+	font-style: italic;
+}
+
+div.resume-cat {
+	margin-bottom: 20px;
+}
+
+div.resume-cat h2, h3, h4 {
+	font-family: 'Open Sans', Arial, sans-serif;
+}
+
+div.resume-cat h2 {
+	float: left;
+}
+
+div.resume-cat div.big-col {
+	margin-left: 250px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #a5a5a5
 }
 
 #footer {
