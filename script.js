@@ -34,13 +34,15 @@ function finishLoad() {
 	//display loading icon
 }
 
-/* Checks to see if link is external */
+/* Checks to see if link is internal and contains no hash */
 function isInternalLink(link) {
 	var splitLink = link.href.split('/');
 
-	if(splitLink[0] === 'http:') {
-		if((splitLink[2] === location.host) || (splitLink[2] === location.hostname)) {
-			return true;
+	if(splitLink[splitLink.length-1].indexOf('#') === -1) {
+		if(splitLink[0] === 'http:') {
+			if((splitLink[2] === location.host) || (splitLink[2] === location.hostname)) {
+				return true;
+			}
 		}
 	}
 	return false;
