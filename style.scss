@@ -595,6 +595,14 @@ footer#footer.footer-hide {
 	margin: 0 10px;
 }
 
+div.placeholder {
+	width: 230px;
+	height: 180px;
+	margin-right: 10px;
+	float: left;
+	background-color: green;
+}
+
 /* Media Queries */
 @media (max-width: 480px) {
 	body {
@@ -654,4 +662,19 @@ footer#footer.footer-hide {
 	#footer p {
 		margin: 0;
 	}
+}
+
+/* Utility Classes */
+.clearfix:before,
+.clearfix:after {
+	content: "";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.clearfix {
+	zoom: 1; /* IE 6/7 */
 }
