@@ -36,12 +36,14 @@ function finishLoad() {
 
 /* Checks to see if link is internal and contains no hash */
 function isInternalLink(link) {
-	var splitLink = link.href.split('/');
+	if(link.hasAttribute('data-lantern') === false) {
+		var splitLink = link.href.split('/');
 
-	if(splitLink[splitLink.length-1].indexOf('#') === -1) {
-		if(splitLink[0] === 'http:') {
-			if((splitLink[2] === location.host) || (splitLink[2] === location.hostname)) {
-				return true;
+		if(splitLink[splitLink.length-1].indexOf('#') === -1) {
+			if(splitLink[0] === 'http:') {
+				if((splitLink[2] === location.host) || (splitLink[2] === location.hostname)) {
+					return true;
+				}
 			}
 		}
 	}
@@ -87,6 +89,12 @@ function swapContent(path) {
 				document.body.removeChild(pageScript);
 				pageScript = document.body.appendChild(document.createElement('script'));
 				pageScript.src = '/filter.js';
+				pageScript.setAttribute('id', 'page-script');
+			} else if(path === '/projectpage.html' || path === '/projectpage.html#') {
+				var pageScript = document.getElementById('page-script');
+				document.body.removeChild(pageScript);
+				pageScript = document.body.appendChild(document.createElement('script'));
+				pageScript.src = '/lightbox.js';
 				pageScript.setAttribute('id', 'page-script');
 			}
 		} else {
