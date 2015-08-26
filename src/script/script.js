@@ -88,13 +88,13 @@ function swapContent(path) {
 				var pageScript = document.getElementById('page-script');
 				document.body.removeChild(pageScript);
 				pageScript = document.body.appendChild(document.createElement('script'));
-				pageScript.src = '/filter.js';
+				pageScript.src = '/script/filter.js';
 				pageScript.setAttribute('id', 'page-script');
 			} else if(path === '/projectpage.html' || path === '/projectpage.html#') {
 				var pageScript = document.getElementById('page-script');
 				document.body.removeChild(pageScript);
 				pageScript = document.body.appendChild(document.createElement('script'));
-				pageScript.src = '/lightbox.js';
+				pageScript.src = '/script/lightbox.js';
 				pageScript.setAttribute('id', 'page-script');
 			}
 		} else {
