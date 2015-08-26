@@ -1,6 +1,6 @@
 node_modules/
 bower_components/
 .sass-cache/
-style.css
-style.css.map
+src/style/style.css
+src/style/style.css.map
 npm-debug.log
