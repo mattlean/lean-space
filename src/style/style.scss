@@ -46,15 +46,19 @@ body {
 	color: #333;
 }
 
-h1 {
-	margin: 0 0 4px;
+h1, h2 {
+	margin: 0 0 6px;
 	font: bold 28px 'Open Sans', Arial, sans-serif;
 	letter-spacing: 4px;
 	text-transform: uppercase;
 }
 
-h1 a:hover {
-	text-decoration: none;
+h2 {
+	font-size: 24px;
+}
+
+p {
+	margin: 0 0 12px;
 }
 
 a, a:link, a:visited, a:hover, a:active {
@@ -150,7 +154,7 @@ $fit-max-width: 960px;
 
 #content {
 	margin-left: $navbar-width;
-	padding: 10px 0 0 20px;
+	padding-top: 10px;
 	overflow-x: hidden;
 	opacity: 1;
 	@include transition(opacity .2s ease-out);
@@ -160,14 +164,20 @@ $fit-max-width: 960px;
 	opacity: 0;
 }
 
+.stretch {
+	padding-top: 10px;
+	background-color: #d2d2d2;
+	color: #000;
+}
+
 .fit {
 	max-width: $fit-max-width;
-	/*padding: 10px 10px 10px 24px;*/
 	margin: 0 auto;
+	padding: 0 20px 10px;
 }
 
 .btn-link-nav {
-	margin: 6px auto;
+	margin: 10px;
 	padding: 0;
 	list-style-type: none;
 	text-align: center;
