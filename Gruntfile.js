@@ -2,6 +2,12 @@ module.exports = function(grunt) {
 	//Project configuration
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
+		htmllint: {
+			options: {
+				force: true
+			},
+			all: ['src/index.html', 'src/about.html']
+		},
 		sass: {
 			dev: {
 				files: {
@@ -18,8 +24,8 @@ module.exports = function(grunt) {
 			files: ['src/script/script.js']
 		},
 		watch: {
-			files: ['src/style/style.scss', '<%= jshint.files %>'],
-			tasks: ['sass:dev', 'csslint', 'jshint']
+			files: ['<%= htmllint.all %>', 'src/style/style.scss', '<%= jshint.files %>'],
+			tasks: ['htmllint', 'sass:dev', 'csslint', 'jshint']
 		},
 		'http-server': {
 			dev: {
@@ -30,6 +36,7 @@ module.exports = function(grunt) {
 	});
 
 	//Load plugins
+	grunt.loadNpmTasks('grunt-html');
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-csslint');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -37,6 +44,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-http-server');
 
 	//Tasks
-	grunt.registerTask('default', ['sass', 'csslint', 'jshint', 'watch']);
+	grunt.registerTask('default', ['htmllint', 'sass', 'csslint', 'jshint', 'watch']);
 	grunt.registerTask('server', ['http-server']);
 };

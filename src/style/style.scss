@@ -265,3 +265,9 @@ a.btn-link img {
 	text-align: center;
 	@include animation(subtitle-drop-in 0.5s cubic-bezier(.25,1,1,1) 1.1s 1 normal forwards);
 }
+
+
+/* Utility Classes */
+.text-center {
+	text-align: center;
+}
