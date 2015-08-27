@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 			options: {
 				force: true
 			},
-			all: ['src/index.html', 'src/about.html', 'src/contact.html', 'src/work.html', 'src/resume.html', 'src/projectpage.html', 'src/blog.html']
+			all: ['src/index.html', 'src/about.html', 'src/contact.html', 'src/work.html', 'src/resume.html', 'src/projectpage.html', 'src/blog.html', 'src/blogpost.html']
 		},
 		sass: {
 			dev: {
@@ -21,7 +21,7 @@ module.exports = function(grunt) {
 			}
 		},
 		jshint: {
-			files: ['src/script/script.js']
+			files: ['src/script/*.js']
 		},
 		watch: {
 			files: ['<%= htmllint.all %>', 'src/style/style.scss', '<%= jshint.files %>'],

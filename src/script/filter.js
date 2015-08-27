@@ -25,16 +25,16 @@ function startFilter() {
 	for(var i = 0; i < workItems.length; ++i) {
 		var itemCats = workItems[i].dataset.cat.split(' ');
 		for(var j = 0; j < itemCats.length; ++ j) {
-			if(filterState['game'] === true && itemCats[j] === 'game') {
+			if(filterState.game === true && itemCats[j] === 'game') {
 				workItems[i].className = defaultClass;
 				break;
-			} else if(filterState['mobileapp'] === true && itemCats[j] === 'mobileapp') {
+			} else if(filterState.mobileapp === true && itemCats[j] === 'mobileapp') {
 				workItems[i].className = defaultClass;
 				break;
-			} else if(filterState['webapp'] === true && itemCats[j] === 'webapp') {
+			} else if(filterState.webapp === true && itemCats[j] === 'webapp') {
 				workItems[i].className = defaultClass;
 				break;
-			} else if(filterState['website'] === true && itemCats[j] === 'website') {
+			} else if(filterState.website === true && itemCats[j] === 'website') {
 				workItems[i].className = defaultClass;
 				break;
 			} else {
@@ -58,27 +58,27 @@ function endFilter() {
 
 function setFilter(dataAttr) {
 	if(catGame.checked === true) {
-		filterState['game'] = true;
+		filterState.game = true;
 	} else {
-		filterState['game'] = false;
+		filterState.game = false;
 	}
 
 	if(catMobileapp.checked === true) {
-		filterState['mobileapp'] = true;
+		filterState.mobileapp = true;
 	} else {
-		filterState['mobileapp'] = false;
+		filterState.mobileapp = false;
 	}
 
 	if(catWebapp.checked === true) {
-		filterState['webapp'] = true;
+		filterState.webapp = true;
 	} else {
-		filterState['webapp'] = false;
+		filterState.webapp = false;
 	}
 
 	if(catWebsite.checked === true) {
-		filterState['website'] = true;
+		filterState.website = true;
 	} else {
-		filterState['website'] = false;
+		filterState.website = false;
 	}
 	
 	startFilter();
