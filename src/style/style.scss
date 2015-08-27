@@ -277,7 +277,7 @@ $filter-height: 40px;
 	@include transition(opacity 0.3s ease-out);
 }
 
-.work-item span {
+.work-item div {
 	box-sizing: border-box;
 	width: 310px;
 	height: 230px;
@@ -292,9 +292,17 @@ $filter-height: 40px;
 	transition: top 0.3s cubic-bezier(0,1,.8,1);
 }
 
-.work-item:hover span {
+.work-item:hover div {
 	top: 0;
 	background-color: rgba(61,187,194,.9);
+}
+
+.work-item-hide {
+	opacity: 0;
+}
+
+.work-item-ghost {
+	display: none;
 }
 
 .work-item h1 {
@@ -307,7 +315,7 @@ $filter-height: 40px;
 	text-transform: none;
 }
 
-.work-item p.work-item-cat {
+.work-item .work-item-cat {
 	margin-bottom: 14px;
 	font: 12px 'Open Sans Condensed', Arial, sans-serif;
 	letter-spacing: 2px;

@@ -12,8 +12,8 @@ var filterState = {
 	'mobileapp': false
 };
 var defaultClass = 'work-item';
-var hideClass = 'work-item hide';
-var ghostClass = 'work-item hide ghost';
+var hideClass = 'work-item work-item-hide';
+var ghostClass = 'work-item work-item-hide work-item-ghost';
 
 var msnry = new Masonry(gallery, {
 	// options
