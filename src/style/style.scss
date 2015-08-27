@@ -85,7 +85,7 @@ a:hover {
 	text-decoration: underline;
 }
 
-ul {
+ol, ul {
 	margin-top: 10px;
 }
 
@@ -404,7 +404,15 @@ a.btn-link2:hover {
 .data-style {
 	font: 16px 'Inconsolata', 'Courier New', Courier, monospace;
 	text-transform: uppercase;
-	color: #464646;
+	color: #555;
+}
+
+.showcase {
+	margin: 20px 0;
+}
+
+.showcase img {
+	margin-right: 6px;
 }
 
 
@@ -466,4 +474,46 @@ a.btn-link2:hover {
 	opacity: 0;
 	text-align: center;
 	@include animation(subtitle-drop-in 0.5s cubic-bezier(.25,1,1,1) 1.1s 1 normal forwards);
+}
+
+/* Lantern.js */
+#lantern {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	display: none;
+	background-color: #000;
+	background-color: rgba(0,0,0,0.5);
+}
+
+#lantern img {
+	width: auto;
+	height: auto;
+	max-width: 90%;
+	max-height: 90%;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+#lantern button {
+	width: 30px;
+	height: 30px;
+	border: 0;
+	position: absolute;
+	top: 6px;
+	right: 6px;
+	font: bold 18px Arial, Helvetica, sans-serif;
+	background-color: #000;
+	border-radius: 50%;
+	color: #fff;
+}
+
+#lantern.lantern-show {
+	display: block;
 }
