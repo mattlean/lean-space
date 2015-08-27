@@ -98,24 +98,24 @@ function swapContent(path) {
 				pageScript.setAttribute('id', 'page-script');
 			}
 		} else {
-			console.error(xhr.statusText)
+			console.error(xhr.statusText);
 			//render error page
 		}
 
 		finishLoad();
-	}
+	};
 
 	xhr.onprogress = function(e) {
 		if(xhr.readyState === 1) {
 			console.log('Download in progress...');
 		}
-	}
+	};
 
 	xhr.onerror = function(e) {
 		console.error(xhr.statusText);
 		finishLoad();
 		//render error page
-	}
+	};
 	//need to cover timeout case?
 	xhr.send(null);
 }
