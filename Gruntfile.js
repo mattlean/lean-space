@@ -37,6 +37,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-http-server');
 
 	//Tasks
-	grunt.registerTask('default', ['sass', 'csslint', 'watch']);
+	grunt.registerTask('default', ['sass', 'csslint', 'jshint', 'watch']);
 	grunt.registerTask('server', ['http-server']);
 };

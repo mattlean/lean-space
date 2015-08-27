@@ -84,14 +84,15 @@ function swapContent(path) {
 			content.innerHTML = eleContent.innerHTML;
 			applyLinkMods(content.getElementsByTagName('a')); // reapply linkMod to newly dl'd content
 			document.title = title; // update page title
+			var pagescript;
 			if(path === '/work.html' || path === '/work.html#') {
-				var pageScript = document.getElementById('page-script');
+				pageScript = document.getElementById('page-script');
 				document.body.removeChild(pageScript);
 				pageScript = document.body.appendChild(document.createElement('script'));
 				pageScript.src = '/script/filter.js';
 				pageScript.setAttribute('id', 'page-script');
 			} else if(path === '/projectpage.html' || path === '/projectpage.html#') {
-				var pageScript = document.getElementById('page-script');
+				pageScript = document.getElementById('page-script');
 				document.body.removeChild(pageScript);
 				pageScript = document.body.appendChild(document.createElement('script'));
 				pageScript.src = '/script/lightbox.js';
@@ -145,7 +146,7 @@ function applyLinkMods(allLinks) {
 
 // swapContent() after content fade out animation completes
 content.addEventListener('transitionend', function(e) {
-	if(e['propertyName'] === 'opacity' && gLoad === true) {
+	if(e.propertyName === 'opacity' && gLoad === true) {
 		swapContent(gCurrPath);
 	}
 }, true);
