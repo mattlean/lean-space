@@ -654,6 +654,29 @@ $filter-height: 40px;
 		margin: 0 auto 10px;
 		display: table;
 	}
+
+	/* Filter */
+	#filter {
+		line-height: normal;
+	}
+
+	#filter p {
+		margin: 0;
+		padding-bottom: 0;
+		border: 0;
+		float: none;
+		font-size: 20px;
+	}
+
+	#filter ul {
+		padding-left: 0;
+	}
+
+	#filter li {
+		height: auto;
+		margin: 0 10px 10px 0;
+		border: 1px solid #afafaf;
+	}
 }
 
 @media (max-width: 700px) {
