@@ -14,32 +14,35 @@ var filterState = {
 };
 var defaultClass = 'work-item';
 var hideClass = 'work-item work-item-hide';
+var revealClass = 'work-item work-item-reveal';
 var ghostClass = 'work-item work-item-hide work-item-ghost';
 
 var msnry = new Masonry(gallery, {
 	// options
-	itemSelector: '.work-item',
-	columnWidth: 320
+	itemSelector: '.work-item'
 });
 
 function startFilter() {
 	for(var i = 0; i < workItems.length; ++i) {
+		console.log(workItems[i]);
 		var itemCats = workItems[i].dataset.cat.split(' ');
+
 		for(var j = 0; j < itemCats.length; ++ j) {
-			if(filterState.game === true && itemCats[j] === 'game') {
-				workItems[i].className = defaultClass;
-				break;
-			} else if(filterState.mobileapp === true && itemCats[j] === 'mobileapp') {
-				workItems[i].className = defaultClass;
-				break;
-			} else if(filterState.webapp === true && itemCats[j] === 'webapp') {
-				workItems[i].className = defaultClass;
-				break;
-			} else if(filterState.website === true && itemCats[j] === 'website') {
-				workItems[i].className = defaultClass;
+			console.log(itemCats[j]);
+			if(
+				(filterState.game === true && itemCats[j] === 'game') ||
+				(filterState.mobileapp === true && itemCats[j] === 'mobileapp') ||
+				(filterState.webapp === true && itemCats[j] === 'webapp') ||
+				(filterState.website === true && itemCats[j] === 'website')
+			) {
+				if(workItems[i].className === ghostClass || workItems[i].className === hideClass) {
+					workItems[i].className = revealClass;
+					console.log('reveal');
+				}
 				break;
 			} else {
 				workItems[i].className = hideClass;
+				console.log('hide');
 			}
 		}
 	}
@@ -51,6 +54,8 @@ function endFilter() {
 	for(var i = 0; i < workItems.length; ++i) {
 		if(workItems[i].className === hideClass) {
 			workItems[i].className = ghostClass;
+		} else if(workItems[i].className === revealClass) {
+			workItems[i].className = defaultClass;
 		}
 	}
 

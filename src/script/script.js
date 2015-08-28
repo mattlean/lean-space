@@ -36,7 +36,7 @@ function highlightNavLink() {
 		navlinks[1].className = navlinkSelectClass;
 	} else if(currPath === '/resume.html') {
 		navlinks[2].className = navlinkSelectClass;
-	} else if(currPath === '/blog.html') {
+	} else if(currPath === '/blog.html' || currPath === '/blogpost.html') {
 		navlinks[3].className = navlinkSelectClass;
 	} else if(currPath === '/contact.html') {
 		navlinks[4].className = navlinkSelectClass;
