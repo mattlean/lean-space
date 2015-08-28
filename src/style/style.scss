@@ -32,6 +32,7 @@
 @mixin linear-gradient($val...) {
 	background-image: -webkit-linear-gradient($val);
 	background-image: -moz-linear-gradient($val);
+	background-image: -ms-linear-gradient($val);
 	background-image: -o-linear-gradient($val);
 	background-image: linear-gradient($val);
 }
@@ -656,6 +657,12 @@ $filter-height: 40px;
 }
 
 @media (max-width: 700px) {
+	/* General */
+	.btn-link-nav li {
+		margin: 0;
+		display: inline-block;
+	}
+
 	/* Navbar */
 	$navbar-height: 50px;
 
@@ -685,25 +692,29 @@ $filter-height: 40px;
 		float: right;
 		display: block;
 		background: url('/img/mobile-menu-icon.png') no-repeat center;
-		border: 0px;
-		outline: none;
+		border: 0;
 	}
 
 	#navbar button:hover {
 		background: url('/img/mobile-menu-icon-hover.png') no-repeat center;
 	}
 
+	#navbar button:focus {
+		outline: none;
+	}
+
 	#navbar ul {
 		padding-top: 50px;
 	}
 
+	/* Content */
 	#content {
-		margin: $navbar-height 0;
+		margin: $navbar-height 0 10px;
 	}
 
-	.btn-link-nav li {
-		margin: 0;
-		display: inline-block;
+	/* Footer */
+	#footer {
+		display: none;
 	}
 }
 
