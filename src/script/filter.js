@@ -15,19 +15,16 @@ var filterState = {
 var defaultClass = 'work-item';
 var hideClass = 'work-item work-item-hide';
 var revealClass = 'work-item work-item-reveal';
-var ghostClass = 'work-item work-item-hide work-item-ghost';
+var ghostClass = 'work-item work-item-ghost';
 
 var msnry = new Masonry(gallery, {
-	// options
 	itemSelector: '.work-item',
 	columnWidth: 320
 });
 
 function startFilter() {
 	for(var i = 0; i < workItems.length; ++i) {
-		console.log(workItems[i]);
 		var itemCats = workItems[i].dataset.cat.split(' ');
-
 		for(var j = 0; j <= itemCats.length; ++ j) {
 			if(j !== itemCats.length) {
 				if(
