@@ -257,6 +257,31 @@ a.btn-link img {
 	vertical-align: middle;
 }
 
+a.btn-link2 {
+	box-sizing: border-box;
+	width: 130px;
+	height: 30px;
+	margin-right: 10px;
+	padding: 4px 6px;
+	border: 1px solid #fff;
+	display: block;
+	font: bold 14px 'Open Sans Condensed', Arial, sans-serif;
+	letter-spacing: 4px;
+	text-transform: uppercase;
+	@include linear-gradient(to right, #fff 50%, rgba(255,255,255,0) 50%);
+	background-position: 100%;
+	background-size: 200% 100%;
+	color: #fff;
+	text-align: center;
+	transition: background-position .2s cubic-bezier(0,1,.8,1), color .2s cubic-bezier(0,1,.8,1);
+}
+
+a.btn-link2:hover {
+	background-position: 0;
+	color: #3dbbc2;
+	text-decoration: none;
+}
+
 
 /* Filter */
 $filter-height: 40px;
@@ -364,32 +389,6 @@ $filter-height: 40px;
 .work-item .btn-link-nav {
 	position: absolute;
 	bottom: 0;
-}
-
-a.btn-link2 {
-	box-sizing: border-box;
-	width: 130px;
-	height: 30px;
-	margin-right: 10px;
-	padding: 4px 6px;
-	border: 1px solid #fff;
-	display: block;
-	font: bold 14px 'Open Sans Condensed', Arial, sans-serif;
-	letter-spacing: 4px;
-	text-transform: uppercase;
-	background-color: #3dbbc2;
-	@include linear-gradient(to right, #fff 50%, rgba(255,255,255,0) 50%);
-	background-position: 100%;
-	background-size: 200% 100%;
-	color: #fff;
-	text-align: center;
-	transition: background-position .2s cubic-bezier(0,1,.8,1), color .2s cubic-bezier(0,1,.8,1);
-}
-
-a.btn-link2:hover {
-	background-position: 0;
-	color: #3dbbc2;
-	text-decoration: none;
 }
 
 

@@ -1,3 +1,4 @@
+/* Gallery */
 var workItems = document.getElementsByClassName('work-item');
 var catGame = document.getElementById('catGame');
 var catMobileapp = document.getElementById('catMobileapp');
@@ -82,9 +83,27 @@ function setFilter(dataAttr) {
 	}
 	
 	startFilter();
+	highlightFilterOp();
 }
 
 catGame.addEventListener('click', setFilter);
 catMobileapp.addEventListener('click', setFilter);
 catWebapp.addEventListener('click', setFilter);
 catWebsite.addEventListener('click', setFilter);
+
+/* Filter Menu */
+var filterOps = document.getElementById('filter').getElementsByTagName('li');
+var selectClass = 'filter-select';
+
+function highlightFilterOp() {
+	for(var i = 0; i < filterOps.length; ++i) {
+		var checkbox = filterOps[i].querySelector('input');
+		if(checkbox.checked) {
+			filterOps[i].className = selectClass;
+		} else {
+			filterOps[i].className = '';
+		}
+	}
+}
+
+highlightFilterOp();
