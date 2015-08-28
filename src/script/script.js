@@ -128,6 +128,7 @@ function swapContent(path) {
 			//render error page
 		}
 
+		window.scrollTo(0,0);
 		finishLoad();
 		highlightNavLink();
 	};
