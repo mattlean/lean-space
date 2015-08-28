@@ -161,10 +161,6 @@ $navbar-mobile-height: 50px;
 	padding-left: 10px;
 }
 
-#navbar.mobile-menu-show {
-	height: 260px;
-}
-
 #navbar button {
 	width: 23px;
 	height: 34px;
@@ -786,6 +782,10 @@ $filter-height: 40px;
 		padding-top: 50px;
 	}
 
+	#navbar.mobile-menu-show {
+		height: 260px;
+	}
+
 	/* Content */
 	#content {
 		margin: $navbar-mobile-height 0 10px;
@@ -888,6 +888,10 @@ $filter-height: 40px;
 
 	#navbar ul {
 		padding-top: 50px;
+	}
+
+	#navbar.mobile-menu-show {
+		height: 260px;
 	}
 
 	#content {
