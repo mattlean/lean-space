@@ -83,7 +83,7 @@ function setFilter(dataAttr) {
 	}
 	
 	startFilter();
-	highlightFilterOp();
+	highlightFilterOps();
 }
 
 catGame.addEventListener('click', setFilter);
@@ -95,7 +95,7 @@ catWebsite.addEventListener('click', setFilter);
 var filterOps = document.getElementById('filter').getElementsByTagName('li');
 var selectClass = 'filter-select';
 
-function highlightFilterOp() {
+function highlightFilterOps() {
 	for(var i = 0; i < filterOps.length; ++i) {
 		var checkbox = filterOps[i].querySelector('input');
 		if(checkbox.checked) {
@@ -106,4 +106,17 @@ function highlightFilterOp() {
 	}
 }
 
-highlightFilterOp();
+function setupFilterOps() {
+	// allows li to control child checkbox
+	for(var i = 0; i < filterOps.length; ++i) {
+		filterOps[i].addEventListener('click', function(e) {
+			if(e.target.type !== 'checkbox') {
+				e.target.querySelector('input').click();
+			}
+		});
+	}
+
+	highlightFilterOps();
+}
+
+setupFilterOps();
