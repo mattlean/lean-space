@@ -11,6 +11,12 @@
 	animation-delay: $val;
 }
 
+@mixin box-shadow($val) {
+	-webkit-box-shadow: $val;
+	-moz-box-shadow: $val;
+	box-shadow: $val;
+}
+
 @mixin box-sizing($val) {
 	-webkit-box-sizing: $val;
 	-moz-box-sizing: $val;
@@ -168,14 +174,11 @@ $navbar-mobile-height: 50px;
 	display: none;
 	background: url('/img/mobile-menu-icon.png') no-repeat center;
 	border: 0;
+	outline: none;
 }
 
 #navbar button:hover {
 	background: url('/img/mobile-menu-icon-hover.png') no-repeat center;
-}
-
-#navbar button:focus {
-	outline: none;
 }
 
 #footer {
@@ -520,11 +523,13 @@ $filter-height: 40px;
 	width: 100%;
 	height: 100%;
 	position: fixed;
-	top: 0;
-	bottom: 0;
-	display: none;
+	top: auto;
+	bottom: auto;
+	z-index: 2;
 	background-color: #000;
 	background-color: rgba(0,0,0,0.5);
+	opacity: 0;
+	@include transition(opacity 0.3s ease-out);
 }
 
 #lantern img {
@@ -538,6 +543,9 @@ $filter-height: 40px;
 	right: 0;
 	bottom: 0;
 	left: 0;
+	@include box-shadow(0 3px 5px 0 rgba(0,0,0,0.5));
+	@include transform(scale(0));
+	@include transition(transform 0.3s ease-out);
 }
 
 #lantern button {
@@ -548,13 +556,21 @@ $filter-height: 40px;
 	top: 6px;
 	right: 6px;
 	font: bold 18px Arial, Helvetica, sans-serif;
-	background-color: #000;
+	background-color: #3dbbc2;
 	border-radius: 50%;
+	@include box-shadow(0 3px 5px 0 rgba(0,0,0,0.5));
 	color: #fff;
+	outline: none;
 }
 
 #lantern.lantern-show {
-	display: block;
+	top: 0;
+	bottom: 0;
+	opacity: 1;
+}
+
+#lantern.lantern-show img {
+	@include transform(scale(1));
 }
 
 
