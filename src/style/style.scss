@@ -275,7 +275,7 @@ a.btn-link2 {
 	background-size: 200% 100%;
 	color: #fff;
 	text-align: center;
-	transition: background-position .2s cubic-bezier(0,1,.8,1), color .2s cubic-bezier(0,1,.8,1);
+	@include transition(background-position .2s cubic-bezier(0,1,.8,1), color .2s cubic-bezier(0,1,.8,1));
 }
 
 a.btn-link2:hover {
@@ -354,7 +354,7 @@ $filter-height: 40px;
 	background-color: #3dbbc2;
 	color: #fff;
 	text-align: left;
-	transition: top 0.3s cubic-bezier(0,1,.8,1);
+	@include transition(top 0.3s cubic-bezier(0,1,.8,1));
 }
 
 .work-item:hover div {
@@ -625,4 +625,71 @@ $filter-height: 40px;
 
 #front li:nth-child(5) {
 	@include animation-delay(2s);
+}
+
+
+/* Mobile */
+@media (max-width: 840px) {
+	/* General */
+	.btn-link-nav a.btn-link {
+		margin: 0;
+	}
+}
+
+@media (max-width: 720px) {
+	/* General */
+	.btn-link-nav li {
+		margin: 0 auto 10px;
+		display: table;
+	}
+}
+
+@media (max-width: 700px) {
+	/* Navbar */
+	#navbar {
+		width: 100%;
+		height: 50px;
+		padding: 6px 14px;
+		right: 0;
+		bottom: auto;
+		z-index: 1;
+		overflow-y: hidden;
+		@include transition(height 0.3s ease-out);
+	}
+
+	#navbar.mobile-menu-show {
+		height: 270px;
+	}
+
+	#navbar h1 {
+		float: left;
+		font: italic 30px 'Exo', Arial, sans-serif;
+	}
+
+	#navbar button {
+		width: 23px;
+		height: 34px;
+		float: right;
+		display: block;
+		background: url('/img/mobile-menu-icon.png') no-repeat center;
+		border: 0px;
+		outline: none;
+	}
+
+	#navbar button:hover {
+		background: url('/img/mobile-menu-icon-hover.png') no-repeat center;
+	}
+
+	#navbar ul {
+		padding-top: 60px;
+	}
+
+	#content {
+		margin-left: 0;
+	}
+
+	.btn-link-nav li {
+		margin: 0;
+		display: inline-block;
+	}
 }

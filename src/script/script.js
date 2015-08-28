@@ -1,9 +1,8 @@
 var navbar = document.getElementById('navbar');
 var footer = document.getElementById('footer');
-var btnMobileMenu = document.getElementById('btn-mobile-menu');
-var mobileMenu = document.getElementById('mobile-menu');
 var content = document.getElementById('content');
 var navlinks = navbar.getElementsByTagName('a');
+var btnMobileMenu = navbar.querySelector('button');
 
 var domParser = new DOMParser();
 
@@ -12,12 +11,35 @@ var gCurrPath; // path from most recently clicked link
 
 /* Opens and closes mobile nav menu */
 function toggleMobileMenu() {
-	var smmClassName = 'show-mobile-menu';
+	var smmClassName = 'mobile-menu-show';
 
-	if(mobileMenu.className === smmClassName) {
-		mobileMenu.className = '';
+	if(navbar.className === smmClassName) {
+		navbar.className = '';
 	} else {
-		mobileMenu.className = smmClassName;
+		navbar.className = smmClassName;
+	}
+}
+
+/* Highlights navlink depending on user's current path */
+function highlightNavLink() {
+	var navlinkSelectClass = 'navlink-select';
+	var currPath = window.location.pathname;
+
+	// reset navlink highlights
+	for(var i = 0; i < navlinks.length; ++i) {
+		navlinks[i].className = '';
+	}
+
+	if(currPath === '/about.html') {
+		navlinks[0].className = navlinkSelectClass;
+	} else if(currPath === '/work.html' || currPath === '/projectpage.html') {
+		navlinks[1].className = navlinkSelectClass;
+	} else if(currPath === '/resume.html') {
+		navlinks[2].className = navlinkSelectClass;
+	} else if(currPath === '/blog.html') {
+		navlinks[3].className = navlinkSelectClass;
+	} else if(currPath === '/contact.html') {
+		navlinks[4].className = navlinkSelectClass;
 	}
 }
 
@@ -145,29 +167,6 @@ function applyLinkMods(allLinks) {
 		if(isInternalLink(allLinks[i])) {
 			linkMod(allLinks[i]);
 		}
-	}
-}
-
-/* Highlights navlink depending on user's current path */
-function highlightNavLink() {
-	var navlinkSelectClass = 'navlink-select';
-	var currPath = window.location.pathname;
-
-	// reset navlink highlights
-	for(var i = 0; i < navlinks.length; ++i) {
-		navlinks[i].className = '';
-	}
-
-	if(currPath === '/about.html') {
-		navlinks[0].className = navlinkSelectClass;
-	} else if(currPath === '/work.html' || currPath === '/projectpage.html') {
-		navlinks[1].className = navlinkSelectClass;
-	} else if(currPath === '/resume.html') {
-		navlinks[2].className = navlinkSelectClass;
-	} else if(currPath === '/blog.html') {
-		navlinks[3].className = navlinkSelectClass;
-	} else if(currPath === '/contact.html') {
-		navlinks[4].className = navlinkSelectClass;
 	}
 }
 
