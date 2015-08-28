@@ -442,7 +442,6 @@ $filter-height: 40px;
 }
 
 .blog-post {
-	height: 210px;
 	margin-bottom: 10px;
 	padding: 8px 0 6px;
 	border-bottom: 1px solid #a5a5a5;
@@ -638,6 +637,13 @@ $filter-height: 40px;
 	}
 }
 
+@media (max-width: 1020px) {
+	/* Blog */
+	.blog-post img {
+		width: 40%;
+	}
+}
+
 @media (max-width: 1000px) {
 	/* Info Page */
 	.info-section h2 {
@@ -768,5 +774,17 @@ $filter-height: 40px;
 	.btn-link-nav li {
 		margin: 0 auto 10px;
 		display: table;
+	}
+
+	/* Info Page */
+	.blog-post img {
+		width: 45%;
+	}
+}
+
+@media (max-width: 360px) {
+	.blog-post img {
+		width: auto;
+		float: none;
 	}
 }
