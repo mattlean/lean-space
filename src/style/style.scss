@@ -138,11 +138,6 @@ $navbar-width: 220px;
 
 #navbar li {
 	border-bottom: 1px solid #393939;
-	@include transition(all 0.5s cubic-bezier(0,1,.8,1));
-}
-
-#navbar li:hover {
-	padding-left: 10px;
 }
 
 #navbar li:last-child {
@@ -154,11 +149,18 @@ $navbar-width: 220px;
 	display: block;
 	letter-spacing: 4px;
 	color: #babbbd;
+	@include transition(all 0.5s cubic-bezier(0,1,.8,1));
 }
 
 #navbar li a:hover {
+	padding-left: 20px;
 	color: #fff;
 	text-decoration: none;
+}
+
+#navbar li a.navlink-select {
+	color: #fafafa;
+	padding-left: 10px;
 }
 
 #footer {

@@ -3,6 +3,7 @@ var footer = document.getElementById('footer');
 var btnMobileMenu = document.getElementById('btn-mobile-menu');
 var mobileMenu = document.getElementById('mobile-menu');
 var content = document.getElementById('content');
+var navlinks = navbar.getElementsByTagName('a');
 
 var domParser = new DOMParser();
 
@@ -11,7 +12,7 @@ var gCurrPath; // path from most recently clicked link
 
 /* Opens and closes mobile nav menu */
 function toggleMobileMenu() {
-	smmClassName = 'show-mobile-menu';
+	var smmClassName = 'show-mobile-menu';
 
 	if(mobileMenu.className === smmClassName) {
 		mobileMenu.className = '';
@@ -84,6 +85,8 @@ function swapContent(path) {
 			content.innerHTML = eleContent.innerHTML;
 			applyLinkMods(content.getElementsByTagName('a')); // reapply linkMod to newly dl'd content
 			document.title = title; // update page title
+
+			// load page javascript and highlight current page in navbar
 			var pagescript;
 			if(path === '/work.html' || path === '/work.html#') {
 				pageScript = document.getElementById('page-script');
@@ -104,6 +107,7 @@ function swapContent(path) {
 		}
 
 		finishLoad();
+		highlightNavLink();
 	};
 
 	xhr.onprogress = function(e) {
@@ -144,6 +148,29 @@ function applyLinkMods(allLinks) {
 	}
 }
 
+/* Highlights navlink depending on user's current path */
+function highlightNavLink() {
+	var navlinkSelectClass = 'navlink-select';
+	var currPath = window.location.pathname;
+
+	// reset navlink highlights
+	for(var i = 0; i < navlinks.length; ++i) {
+		navlinks[i].className = '';
+	}
+
+	if(currPath === '/about.html') {
+		navlinks[0].className = navlinkSelectClass;
+	} else if(currPath === '/work.html' || currPath === '/projectpage.html') {
+		navlinks[1].className = navlinkSelectClass;
+	} else if(currPath === '/resume.html') {
+		navlinks[2].className = navlinkSelectClass;
+	} else if(currPath === '/blog.html') {
+		navlinks[3].className = navlinkSelectClass;
+	} else if(currPath === '/contact.html') {
+		navlinks[4].className = navlinkSelectClass;
+	}
+}
+
 // swapContent() after content fade out animation completes
 content.addEventListener('transitionend', function(e) {
 	if(e.propertyName === 'opacity' && gLoad === true) {
@@ -159,3 +186,4 @@ window.addEventListener('popstate', function(e) {
 /* Main */
 btnMobileMenu.addEventListener('click', toggleMobileMenu);
 applyLinkMods(document.getElementsByTagName('a'));
+highlightNavLink();
