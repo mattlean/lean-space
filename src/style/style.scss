@@ -629,6 +629,17 @@ $filter-height: 40px;
 
 
 /* Mobile */
+@media (max-width: 1000px) {
+	/* Info Page */
+	.info-section h2 {
+		float: none;
+	}
+
+	.big-col {
+		margin-left: 0;
+	}
+}
+
 @media (max-width: 840px) {
 	/* General */
 	.btn-link-nav a.btn-link {
@@ -646,10 +657,12 @@ $filter-height: 40px;
 
 @media (max-width: 700px) {
 	/* Navbar */
+	$navbar-height: 50px;
+
 	#navbar {
 		width: 100%;
-		height: 50px;
-		padding: 6px 14px;
+		height: $navbar-height;
+		padding: 6px 20px;
 		right: 0;
 		bottom: auto;
 		z-index: 1;
@@ -658,7 +671,7 @@ $filter-height: 40px;
 	}
 
 	#navbar.mobile-menu-show {
-		height: 270px;
+		height: 260px;
 	}
 
 	#navbar h1 {
@@ -681,15 +694,23 @@ $filter-height: 40px;
 	}
 
 	#navbar ul {
-		padding-top: 60px;
+		padding-top: 50px;
 	}
 
 	#content {
-		margin-left: 0;
+		margin: $navbar-height 0;
 	}
 
 	.btn-link-nav li {
 		margin: 0;
 		display: inline-block;
+	}
+}
+
+@media (max-width: 500px) {
+	/* General */
+	.btn-link-nav li {
+		margin: 0 auto 10px;
+		display: table;
 	}
 }
