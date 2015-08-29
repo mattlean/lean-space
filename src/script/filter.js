@@ -1,6 +1,7 @@
 /* Gallery */
 var workItems = document.getElementsByClassName('work-item');
 var catGame = document.getElementById('catGame');
+var catLibrary = document.getElementById('catLibrary');
 var catMobileapp = document.getElementById('catMobileapp');
 var catWebapp = document.getElementById('catWebapp');
 var catWebsite = document.getElementById('catWebsite');
@@ -10,7 +11,8 @@ var filterState = {
 	'game': false,
 	'webapp': false,
 	'website': false,
-	'mobileapp': false
+	'mobileapp': false,
+	'library': false
 };
 var defaultClass = 'work-item';
 var hideClass = 'work-item work-item-hide';
@@ -29,6 +31,7 @@ function startFilter() {
 			if(j !== itemCats.length) {
 				if(
 					(filterState.game === true && itemCats[j] === 'game') ||
+					(filterState.library === true && itemCats[j] === 'library') ||
 					(filterState.mobileapp === true && itemCats[j] === 'mobileapp') ||
 					(filterState.webapp === true && itemCats[j] === 'webapp') ||
 					(filterState.website === true && itemCats[j] === 'website')
@@ -66,6 +69,12 @@ function setFilter(dataAttr) {
 		filterState.game = false;
 	}
 
+	if(catLibrary.checked === true) {
+		filterState.library = true;
+	} else {
+		filterState.library = false;
+	}
+
 	if(catMobileapp.checked === true) {
 		filterState.mobileapp = true;
 	} else {
@@ -89,6 +98,7 @@ function setFilter(dataAttr) {
 }
 
 catGame.addEventListener('click', setFilter);
+catLibrary.addEventListener('click', setFilter);
 catMobileapp.addEventListener('click', setFilter);
 catWebapp.addEventListener('click', setFilter);
 catWebsite.addEventListener('click', setFilter);
