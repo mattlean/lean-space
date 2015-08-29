@@ -23,22 +23,22 @@ function toggleMobileMenu() {
 /* Highlights navlink depending on user's current path */
 function highlightNavLink() {
 	var navlinkSelectClass = 'navlink-select';
-	var currPath = window.location.pathname;
+	var currPath = window.location.pathname.split('/')[1];
 
 	// reset navlink highlights
 	for(var i = 0; i < navlinks.length; ++i) {
 		navlinks[i].className = '';
 	}
 
-	if(currPath === '/about.html') {
+	if(currPath === 'about') {
 		navlinks[0].className = navlinkSelectClass;
-	} else if(currPath === '/work.html' || currPath === '/projectpage.html') {
+	} else if(currPath === 'work') {
 		navlinks[1].className = navlinkSelectClass;
-	} else if(currPath === '/resume.html') {
+	} else if(currPath === 'resume') {
 		navlinks[2].className = navlinkSelectClass;
-	} else if(currPath === '/blog.html' || currPath === '/blogpost.html') {
+	} else if(currPath === 'blog') {
 		navlinks[3].className = navlinkSelectClass;
-	} else if(currPath === '/contact.html') {
+	} else if(currPath === 'contact') {
 		navlinks[4].className = navlinkSelectClass;
 	}
 }
@@ -94,11 +94,11 @@ function getPath(href) {
 function swapContent(path) {
 	var xhr = new XMLHttpRequest();
 
-	console.log('Started download for "' + path + '".');
+	//console.log('Started download for "' + path + '".');
 	xhr.open('GET', path, true);
 	xhr.onload = function(e) {
 		if(xhr.status === 200) {
-			console.log('Download succeeded.');
+			//console.log('Download succeeded.');
 			// Takes content div from dl'd HTML doc and replaces current page's content div with it
 			var docHtml = domParser.parseFromString(xhr.responseText, 'text/html');
 			var eleContent = docHtml.getElementById('content');
@@ -110,18 +110,22 @@ function swapContent(path) {
 
 			// load page javascript and highlight current page in navbar
 			var pagescript;
-			if(path === '/work.html' || path === '/work.html#') {
-				pageScript = document.getElementById('page-script');
-				document.body.removeChild(pageScript);
-				pageScript = document.body.appendChild(document.createElement('script'));
-				pageScript.src = '/script/filter.js';
-				pageScript.setAttribute('id', 'page-script');
-			} else if(path === '/projectpage.html' || path === '/projectpage.html#') {
-				pageScript = document.getElementById('page-script');
-				document.body.removeChild(pageScript);
-				pageScript = document.body.appendChild(document.createElement('script'));
-				pageScript.src = '/script/lightbox.js';
-				pageScript.setAttribute('id', 'page-script');
+			var currPath = path.split('/');
+
+			if(currPath[1] === 'work') {
+				if(currPath.length == 2) {
+					pageScript = document.getElementById('page-script');
+					document.body.removeChild(pageScript);
+					pageScript = document.body.appendChild(document.createElement('script'));
+					pageScript.src = '/script/filter.js';
+					pageScript.setAttribute('id', 'page-script');
+				} else if(currPath.length > 2) {
+					pageScript = document.getElementById('page-script');
+					document.body.removeChild(pageScript);
+					pageScript = document.body.appendChild(document.createElement('script'));
+					pageScript.src = '/script/lightbox.js';
+					pageScript.setAttribute('id', 'page-script');
+				}
 			}
 		} else {
 			console.error(xhr.statusText);
@@ -135,7 +139,7 @@ function swapContent(path) {
 
 	xhr.onprogress = function(e) {
 		if(xhr.readyState === 1) {
-			console.log('Download in progress...');
+			//console.log('Download in progress...');
 		}
 	};
 
