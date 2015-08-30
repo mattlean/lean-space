@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 			options: {
 				force: true
 			},
-			all: ['src/index.html', 'src/about.html', 'src/contact.html', 'src/work.html', 'src/resume.html', 'src/projectpage.html', 'src/blog.html', 'src/blogpost.html']
+			all: ['src/*.html']
 		},
 		sass: {
 			dev: {
