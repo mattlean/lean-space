@@ -190,8 +190,26 @@ $navbar-mobile-height: 50px;
 	bottom: 0;
 	text-transform: uppercase;
 	color: #999;
-	text-align: right;
 	@include transition(left 0.5s ease-out);
+}
+
+#footer img {
+	margin-right: 4px;
+}
+
+#footer .twitter {
+	width: 17px;
+	height: 17px;
+}
+
+#footer .linkedin {
+	width: 16px;
+	height: 13px;
+}
+
+#footer .github {
+	width: 14px;
+	height: 14px;
 }
 
 #navbar.navbar-hide, #footer.footer-hide {
