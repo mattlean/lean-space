@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Case Study: Spectral Overlay Tool | MattLean.com</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="/bower_components/normalize.css/normalize.css">
+		<link href='http://fonts.googleapis.com/css?family=Exo:300italic,300|Open+Sans:400,400italic,700,700italic|Open+Sans+Condensed:300|Inconsolata' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="/style/style.css">
+	</head>
+	<body>
+		<nav id="navbar">
+			<h1>Lean</h1>
+			<button></button>
+			<ul>
+				<li><a href="/about">About</a></li>
+				<li><a href="/work">Work</a></li>
+				<li><a href="/resume">Resume</a></li>
+				<li><a href="/blog">Blog</a></li>
+				<li><a href="/contact">Contact</a></li>
+			</ul>
+		</nav>
+		<div id="content">
+			<style scoped>
+				#cover {
+					background: url('/img/cover/sea-mountains-landmark-ocean.jpg') no-repeat center;
+					background-size: cover;
+				}
+			</style>
+			<div id="cover">
+				<div id="cover-text">
+					<h1>Case Study: Spectral Overlay Tool</h1>
+					<p>Posted in <a href="/blog/case-studies">Case Studies</a> on August 31, 2015</p>
+				</div>
+			</div>
+			<div class="fit">
+				<h2>Introduction</h2>
+				<p>I landed some work with <a href="http://biosearchtech.com">Biosearch Technologies</a>, a biotechnology company in Petaluma, California that designs and manufactures nucleic acid-based products. They approached me to help them out with one of their new campaigns to promote their various products and renovated services through an all new microsite called <a href="http://qpcrdesign.com">qPCR Design Lab</a>.</p>
+				<p>The work would be split between me and <a href="http://thespider.com">The Spider</a>, a website development company also hired by Biosearch Technologies in San Francisco. I would be responsible for developing the site’s spectral overlay tool and the branded HTML5 game.</p>
+				<p>This particular case study will only focus on the spectral overlay tool.</p>
+				<h2>Application Requirements</h2>
+				<p>So, like most of technology included the campaign, the previous spectral overlay tool was in serious need of renovation. The first version was built from Flash, and support for the platform has been weakening lately in favor of HTML5. Biosearch Technologies sent me some feature requirements, branding guidelines, and the following technological requirements:</p>
+				<ol>
+					<li>The tool must use HTML5 technologies.</li>
+					<li>The tool must support use on both desktop and mobile.</li>
+				</ol>
+				<h2>Drawing the Charts</h2>
+				<p>So the first question obvious question was, "How am I going to draw these charts?"" I went through a few JavaScript charting libraries, but eventually I decided to use the Google Visualization API.</p>
+				<p>Most of the libraries supported the core feature requirement which is the ability to draw line charts, but ultimately I decided to use the Google Visualization API over all of them because of its clear and thorough documentation. After I skimmed through the it, I knew that by choosing this API I wouldn’t run into too many problems since there would always be something to answer my questions.</p>
+				<p>In the end I believe I made the right decision because I didn’t run into any significant problems during development thanks to the docs and I really enjoyed using the API a lot.</p>
+				<h2>Bootstrap Bandwagon</h2>
+				<p>When the desktop and mobile support requirement popped up, not gonna lie, my first thought was just like what many web engineers these days would have... "Let’s use Bootstrap."</p>
+				<p>Bootstrap was still extremely helpful at the end of the day, but very early in development I decided to scrap the grid in favor of custom CSS which was something I wasn’t expecting. After the first few builds of the application, I realized that while the Bootstrap grid is extremely easy to use, some of the columns were awkwardly proportioned at some screen sizes or the layout would transition into its mobile version too early. In order to get specific dimensions and have fine control over how they adjust on screen size change, I needed to write custom CSS.</p>
+			</div>
+			<div class="stretch">
+				<div class="fit">
+					<div class="showcase">
+						<a href="/img/work/spectral-overlay-tool/full1.png" data-lantern><img src="/img/work/spectral-overlay-tool/thumb1.png" alt="Spectral Overlay Chart Thumbnail"></a>
+						<a href="/img/work/adam-engine/full2.png" data-lantern><img src="/img/work/adam-engine/thumb2.png" alt="Adam Engine Snake Game"></a>
+						<a href="/img/work/spectral-overlay-tool/full1.png" data-lantern><img src="/img/work/spectral-overlay-tool/thumb1.png" alt="Spectral Overlay Chart Thumbnail"></a>
+						<a href="/img/work/adam-engine/full2.png" data-lantern><img src="/img/work/adam-engine/thumb2.png" alt="Adam Engine Snake Game"></a>
+						<p><i>The development progression of the spectral overlay tool.</i></p>
+					</div>
+				</div>
+			</div>
+			<div class="fit">
+				<h2>Data Management</h2>
+				<p>Biosearch Technologies gave me the graph data in the form of CSV, but I wanted the application to run with JSON because it’s more flexible than CSV and JavaScript can handle it really easily.</p>
+				<p>To convert the data, I wrote a <a href="http://github.com/IsaacLean/csv-json-converter">little Python script that converts the CSV to JSON</a>. After the conversion, the JSON is then read in by the application. This makes it so that even Biosearch Technologies employees can update the graph data by themselves without me. All they need to do is convert their CSV to JSON and overwrite the existing JSON folder and the application will be updated.</p>
+				<h2>Scaffolding & Task Running</h2>
+				<p>I wanted to try out some new things in my workflow so I decided to use Yeoman. I really enjoyed using it since it setup the file structure and the project dependencies for me, saving me a lot of time when starting to work.</p>
+				<p>The most significant thing Yeoman introduced to me though was Grunt. Grunt’s tasks save me a ton of work! It can run the server for me, auto-refresh the browser when files are updated, compile SASS to CSS, run JSHint to lint my JavaScript, and run unit tests. All I need to do is type in one command and Grunt will do everything for me automatically in the background until I tell it to stop. What’s also nice is that I can build a production version of the tool where Grunt will compile all of the relevant files to reduce the amount of HTTP requests and minify it to reduce the file sizes of the codebase, making the live version of the application faster to download.</p>
+				<p>Grunt is so useful that now I use it in almost every frontend project I work on.</p>
+				<h2>Recognition</h2>
+				<p><a href="http://genengnews.com">Genetic Engineering News</a> awarded qPCR Design the <a href="http://www.genengnews.com/best-of-the-web/qpcr-design-lab/2933/?kwrd=biosearch">Best of Web</a> in vol. 35, no. 4.</p>
+			</div>
+		</div>
+		<footer id="footer">
+			<p>&copy; 2015 Matt Lean</p>
+		</footer>
+		<script src="/script/script.js"></script>
+		<script src="/bower_components/masonry/dist/masonry.pkgd.min.js"></script>
+		<script src="/bower_components/lanternjs/dist/lantern.min.js"></script>
+		<script src="/script/lightbox.js" id="page-script"></script>
+	</body>
+</html>
