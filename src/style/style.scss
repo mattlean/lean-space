@@ -853,16 +853,20 @@ $filter-height: 40px;
 	}
 }
 
+@media (max-width: 400px) {
+	/* Blog */
+	.blog-post img {
+		width: 300px;
+		margin: 0 auto 14px;
+		float: none;
+		display: block;
+	}
+}
+
 @media (max-width: 360px) {
 	/* General */
 	#gallery.fit {
 		padding: 10px 2px;
-	}
-
-	/* Blog */
-	.blog-post img {
-		width: auto;
-		float: none;
 	}
 }
 

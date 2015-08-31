@@ -126,6 +126,12 @@ function swapContent(path) {
 					pageScript.src = '/script/lightbox.js';
 					pageScript.setAttribute('id', 'page-script');
 				}
+			} else if(currPath[1] === 'blog' && currPath.length > 2) {
+				pageScript = document.getElementById('page-script');
+				document.body.removeChild(pageScript);
+				pageScript = document.body.appendChild(document.createElement('script'));
+				pageScript.src = '/script/lightbox.js';
+				pageScript.setAttribute('id', 'page-script');
 			}
 		} else {
 			console.error(xhr.statusText);
