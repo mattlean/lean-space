@@ -144,12 +144,6 @@ function swapContent(path) {
 		highlightNavLink();
 	};
 
-	xhr.onprogress = function(e) {
-		if(xhr.readyState === 1) {
-			//console.log('Download in progress...');
-		}
-	};
-
 	xhr.onerror = function(e) {
 		console.error(xhr.statusText);
 		finishLoad();
@@ -173,11 +167,13 @@ function linkMod(link) {
 	}, false);
 }
 
-/* Applies linkMod() to internal links only */
+/* Applies linkMod() to internal links only if History API is supported */
 function applyLinkMods(allLinks) {
-	for(var i = 0; i < allLinks.length; ++i) {
-		if(isInternalLink(allLinks[i])) {
-			linkMod(allLinks[i]);
+	if(Modernizr.history) {
+		for(var i = 0; i < allLinks.length; ++i) {
+			if(isInternalLink(allLinks[i])) {
+				linkMod(allLinks[i]);
+			}
 		}
 	}
 }
