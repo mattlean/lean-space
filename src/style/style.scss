@@ -202,6 +202,7 @@ $navbar-mobile-height: 50px;
 #footer .linkedin {
 	width: 16px;
 	height: 13px;
+	margin-right: 2px;
 }
 
 #navbar.navbar-hide, #footer.footer-hide {
@@ -288,6 +289,11 @@ a.btn-link img {
 	height: 20px;
 	margin: 0 10px 4px 0;
 	vertical-align: middle;
+}
+
+a.btn-link .linkedin {
+	width: 20px;
+	height: 16px;
 }
 
 a.btn-link2 {
