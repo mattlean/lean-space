@@ -21,7 +21,8 @@ var ghostClass = 'work-item work-item-ghost';
 
 var msnry = new Masonry(gallery, {
 	itemSelector: '.work-item',
-	columnWidth: 320
+	columnWidth: 320,
+	isFitWidth: true
 });
 
 function startFilter() {

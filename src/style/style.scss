@@ -811,20 +811,7 @@ $filter-height: 40px;
 	}
 }
 
-@media (max-width: 770px) {
-	/* General */
-	.btn-link-nav li {
-		margin: 0 auto 10px;
-		display: table;
-	}
-
-	/* Info Page */
-	.showcase img {
-		width: 40%;
-	}
-}
-
-@media (max-width: 730px) {
+@media (max-width: 810px) {
 	/* Filter */
 	#filter {
 		line-height: normal;
@@ -846,6 +833,19 @@ $filter-height: 40px;
 		height: auto;
 		margin: 0 10px 10px 0;
 		border: 1px solid #afafaf;
+	}
+}
+
+@media (max-width: 770px) {
+	/* General */
+	.btn-link-nav li {
+		margin: 0 auto 10px;
+		display: table;
+	}
+
+	/* Info Page */
+	.showcase img {
+		width: 40%;
 	}
 }
 
