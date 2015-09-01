@@ -115,6 +115,13 @@ ol, ul {
 	margin-top: 10px;
 }
 
+noscript {
+	font: bold 14px Arial, sans-serif;
+	letter-spacing: 0;
+	color: #ff0000;
+	text-transform: uppercase;
+}
+
 
 /* Navbar */
 $navbar-width: 220px;
