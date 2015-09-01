@@ -2,6 +2,7 @@ var navbar = document.getElementById('navbar');
 var footer = document.getElementById('footer');
 var content = document.getElementById('content');
 var navlinks = navbar.getElementsByTagName('a');
+var loader = document.getElementById('loader');
 var btnMobileMenu = navbar.querySelector('button');
 
 var domParser = new DOMParser();
@@ -47,14 +48,14 @@ function highlightNavLink() {
 function startLoad() {
 	gLoad = true;
 	content.className = 'load';
-	//display loading icon
+	loader.className = '';
 }
 
 /* Stops loading and reveals new content */
 function finishLoad() {
 	gLoad = false;
+	loader.className = 'load-hide';
 	content.className = '';
-	//display loading icon
 }
 
 /* Checks to see if link is internal and contains no hash */
