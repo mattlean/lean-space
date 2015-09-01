@@ -136,7 +136,7 @@ function swapContent(path) {
 			}
 		} else {
 			console.error(xhr.statusText);
-			//render error page
+			content.innerHTML = '<div class="fit"><h1>Something went wrong!</h1><p>The page you are trying to access either does not exist or there is an issue with your internet connection!</p></div>';
 		}
 
 		window.scrollTo(0,0);
@@ -147,7 +147,7 @@ function swapContent(path) {
 	xhr.onerror = function(e) {
 		console.error(xhr.statusText);
 		finishLoad();
-		//render error page
+		content.innerHTML = '<div class="fit"><h1>Something went wrong!</h1><p>The page you are trying to access either does not exist or there is an issue with your internet connection!</p></div>';
 	};
 	//need to cover timeout case?
 	xhr.send(null);
