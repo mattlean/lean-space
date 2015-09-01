@@ -23,6 +23,12 @@
 	box-sizing: $val;
 }
 
+@mixin filter($val) {
+	-webkit-filter: $val;
+	-moz-filter: $val;
+	filter: $val;
+}
+
 @mixin keyframes($val) {
 	@-webkit-keyframes #{$val} {
 		@content;
@@ -197,6 +203,12 @@ $navbar-mobile-height: 50px;
 	width: 14px;
 	height: 14px;
 	margin-right: 4px;
+	@include filter(contrast(0%));
+	@include transition(all 0.5s cubic-bezier(0,1,.8,1));
+}
+
+#footer img:hover {
+	@include filter(contrast(100%));
 }
 
 #footer .linkedin {
