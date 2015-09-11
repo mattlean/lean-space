@@ -11,6 +11,12 @@
 	animation-delay: $val;
 }
 
+@mixin border-radius($val) {
+	-webkit-border-radius: $val;
+	-moz-border-radius: $val;
+	border-radius: $val;
+}
+
 @mixin box-shadow($val) {
 	-webkit-box-shadow: $val;
 	-moz-box-shadow: $val;
@@ -47,6 +53,12 @@
 	background-image: -ms-linear-gradient($val);
 	background-image: -o-linear-gradient($val);
 	background-image: linear-gradient($val);
+}
+
+@mixin text-shadow($val) {
+	-webkit-text-shadow: $val;
+	-moz-text-shadow: $val;
+	text-shadow: $val;
 }
 
 @mixin transform($val) {
@@ -371,7 +383,7 @@ a.btn-link2:hover {
 	position: relative;
 	top: 50%;
 	left: 50%;
-	border-radius: 50%;
+	@include border-radius(50%);
 	border-top-color: #3dbbc2;
 	@include animation(loader-spin 1s ease-in-out infinite);
 }
@@ -642,12 +654,11 @@ $filter-height: 40px;
 	position: absolute;
 	top: 6px;
 	right: 6px;
-	font: bold 18px Arial, Helvetica, sans-serif;
-	background-color: #3dbbc2;
-	border-radius: 50%;
-	@include box-shadow(0 3px 5px 0 rgba(0,0,0,0.5));
+	font: bold 20px Arial, Helvetica, sans-serif;
+	background: none;
 	color: #fff;
 	outline: none;
+	@include text-shadow(0px 3px 5px rgba(0,0,0,0.8));
 }
 
 #lantern.lantern-show {
