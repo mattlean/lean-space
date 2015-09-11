@@ -354,9 +354,10 @@ a.btn-link2:hover {
 
 #loader {
 	height: 100%;
+	padding-left: $navbar-width;
 	position: fixed;
 	top: 0;
-	left: $navbar-width;
+	left: 0;
 	right: 0;
 	background-color: rgba(0,0,0,0.2);
 }
@@ -910,7 +911,7 @@ $filter-height: 40px;
 	}
 
 	#loader {
-		left: 0;
+		padding-left: 0;
 	}
 
 	/* Footer */
