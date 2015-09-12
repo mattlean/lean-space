@@ -407,7 +407,7 @@ a.btn-link2:hover {
 
 
 /* Filter */
-$filter-height: 40px;
+$filter-height: 48px;
 
 #filter {
 	padding-top: 0;
@@ -420,7 +420,7 @@ $filter-height: 40px;
 
 #filter p {
 	height: $filter-height;
-	padding: 4px 10px 4px 0;
+	padding: 10px 10px 10px 0;
 	border-right: 1px solid #afafaf;
 	float: left;
 }
@@ -431,7 +431,7 @@ $filter-height: 40px;
 
 #filter li {
 	height: $filter-height;
-	padding: 4px 14px 4px 8px;
+	padding: 10px 14px 10px 8px;
 	border-right: 1px solid #afafaf;
 	display: inline-block;
 	background-color: #c7c7c7;
