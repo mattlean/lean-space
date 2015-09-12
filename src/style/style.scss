@@ -127,6 +127,22 @@ ol, ul {
 	margin-top: 10px;
 }
 
+table {
+	margin: 14px auto;
+	background-color: #ececec;
+}
+
+thead tr {
+	background-color: #292C31;
+	color: #fafafa;
+}
+
+th, td {
+	padding: 12px 14px;
+	border: 1px solid #292c31;
+	text-align: left;
+}
+
 noscript {
 	font: bold 14px Arial, sans-serif;
 	letter-spacing: 0;
