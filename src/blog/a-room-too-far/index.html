@@ -23,8 +23,12 @@
 		<div id="content">
 			<style scoped>
 				#cover {
-					background: url('/img/blog/spectral-overlay-tool/cover.jpg') no-repeat center;
+					background: url('/img/blog/a-room-too-far/cover.jpg') no-repeat center;
 					background-size: cover;
+				}
+
+				#cover-text {
+					background: none;
 				}
 			</style>
 			<div id="cover">
@@ -35,15 +39,15 @@
 			</div>
 			<div class="fit">
 				<h2>Introduction</h2>
-				<p>For my senior final project at UC Santa Cruz I joined Team 360 No Scope to develop a game called A Room Too Far.</p>
-				<p>A Room Too Far is an arcade game with, yes, an actual arcade machine. The levels players would play on the machine are built by other players on the game’s level editor hosted on the game’s companion website. The project was a pretty complicated one that required several teams working on many different things: software development, woodwork and hardware development, art, audio, and game design. After about 6 months of development the team could only muster out a prototype, but many lessons were learned along the way.</p>
+				<p>For my senior final project at UC Santa Cruz I joined <a href="http://github.com/aroomtoofar">Team 360 No Scope</a> to develop a game called A Room Too Far.</p>
+				<p>A Room Too Far is an arcade game with an actual arcade machine. The levels players explore on the machine are built by other players through game’s level editor hosted on the companion website. The project required several teams working on many different things: software development, woodwork and hardware development, art, audio, and game design. After about 6 months of development the team could only muster out a prototype, but many valuable lessons were learned along the way.</p>
 				<p>There’s a lot I can talk about with this project, but for this particular case study I will only focus on the technological relationships between the game and the web as the main two of my many roles on the team were server and network programmer.</p>
 				<h2>Unity vs. Unreal</h2>
 				<p>The first big question was how we were going to build the game. With only about 6 months to develop everything, we didn’t like the idea of writing an engine from scratch. Instead we narrowed our options down to two engines: Unity and Unreal.</p>
 				<p>Unreal Engine 4 (UE4) at the time was brand new and had just became free, and while it was an enticing option because, “This is an engine used by industry AAA developers!” unlike Unity’s association with small mobile games, we decided against it in favor for Unity for two reasons.</p>
 				<h3>Blueprints & Documentation</h3>
-				<p>UE4’s release came with huge push for their new visual scripting system Unreal calls Blueprints. Our team favored coding in traditional languages and while UE4 does support C++, there simply wasn’t enough documentation on it, although there certainly was plenty for Blueprints. Not only this, but after doing some research we found that many people complained about some issues with getting Blueprints and C++ to work together.</p>
-				<p>To completely avoid these issues, we decided to go with Unity as its documentation was solid. While not everyone had experience in C#, the entire team had an easy time picking it up because of our experience with Java.</p>
+				<p>UE4’s release came with huge push for their new visual scripting system Unreal calls Blueprints. Our team favored coding in C++ as everyone had experience with it and while UE4 does support the language, there simply wasn’t enough documentation on it, although there certainly was plenty for Blueprints. Not only this, but after doing some research we found that many people complained about some issues with getting Blueprints and C++ to work together.</p>
+				<p>To completely avoid these issues, we decided to go with Unity as its documentation was solid. While some team members had zero to little experience with C#, the language was picked up extremely quickly because of our experience with Java.</p>
 				<h3>Web Player</h3>
 				<p>Because essentially half of the game exists in the browser with the level editor and we wanted the level editor to be built on the same engine as the game, we wanted an engine that could reliably export to the web.</p>
 				<p>Both UE4 and Unity support HTML5 builds, but there were many reports of these builds running unstably with a lot of bugs. Unity did provide another option though with its Web Player which ran non-HTML5 web builds of the game that worked almost identically to the regular builds of the game. This was another big factor in our decision to choose Unity, but unfortunately the Web Player would hurt us down the line. (I’ll talk about this later in the case study.)</p>
@@ -82,12 +86,12 @@
 						</tr>
 					</tbody>
 				</table>
-				<p>When downloading and updating levels, the server the level data, which is basically a custom formatted string, is passed around between the server and the client (the game or the level editor). When a client loads levels, it is basically doing a GET request to download the level data string, parses it, then builds the level according to the data. When the level level editor is creating and updating levels, first it validates every level to prevent broken or unfair levels to be saved to the Datastore, and if the level is confirmed to be validated it will then proceed to send a POST or PUT request to the server where it will be stored in the Datastore.</p>
+				<p>When downloading and updating levels, the level data, which is simply a custom formatted string, is passed around between the server and the client (the game or the level editor). When a client loads levels, it is basically does a GET request to download the level data string, parses it, and builds the level according to the data. When the level editor is creating and updating levels, first it validates every level to prevent broken or unfair levels to be saved to the Datastore. If the level is confirmed to be valid, then it will then proceed to send a POST or PUT request to the server where it will be stored in the Datastore.</p>
 				<h2>Unity Web Player Woes</h2>
-				<p>Unfortunately midway through the development, Chrome 42 was released and disabled Netscape Plugin Application Programming Interface (NPAPI) plugins by default. Alongside Java and Silverlight, Unity’s Web Player was disabled for the majority of Chrome users by this update.</p>
-				<p>While the barrier of entry for using the level editor was already large due to the requirement to download Unity’s Web Player plugin, now the barrier became even larger since Chrome users couldn’t even run the editor without going through the browser’s settings and manually enabling NPAPI support.</p>
-				<p>Still Google’s reasoning behind doing this is pretty reasonable as most applications built through NPAPI often cause performance hangs and crashes. A Room Too Far’s level editor was no exception, as the Web Player did cause issues with performance, especially when its process was left open for a considerable amount of time.</p>
-				<p>In an attempt to address this issue we did try getting an HTML5 build of the game to work. In an ideal world this would be the best option as performance would improve and we would eliminate the requirement to download a plugin, but unfortunately the HTML5 build couldn’t even run. We only had about 2 months of development left with still a lot of other work to do, so we kept the Web Player and most of our userbase switched to Firefox when using the level editor.</p>
+				<p>Unfortunately midway through the development, Chrome 42 was released and disabled Netscape Plugin Application Programming Interface (NPAPI) plugins by default. Alongside Java and Silverlight, Unity’s Web Player was disabled for the majority of Chrome users through this update.</p>
+				<p>The barrier of entry for using the level editor was already large due to the requirement to download Unity’s Web Player plugin, now the barrier became even larger since Chrome users couldn’t even run the editor without going through the browser’s settings and manually enabling NPAPI support.</p>
+				<p>Still Google’s reasoning behind doing this is understandable as most applications built through NPAPI often cause performance hangs and crashes. A Room Too Far’s level editor was no exception, as the Web Player did cause issues with performance, especially when its process was left open for a considerable amount of time.</p>
+				<p>In an attempt to address this issue we did try getting an HTML5 build of the game to work. In an ideal world this would be the best option as performance would improve and we would eliminate the requirement to download a plugin, but unfortunately the HTML5 build couldn’t even run. With only 2 months of development remaining and still plenty of other work to do, we decided to keep the Web Player and most of our userbase switched to Firefox when using the level editor.</p>
 				<p>Besides the whole NPAPI debacle and performance issues, the only significant issue with the level editor was that sometimes the shaders wouldn’t work properly in the browser, making us have to re-write them. Everything else worked surprisingly well.</p>
 				<h2>Conclusion</h2>
 				<p>Working on A Room Too Far was an amazing learning experience. The project tackled a lot of interesting challenges by experimenting with the arcade machine and web spaces, but it was just unfortunate that the level editor was hindered so much by Unity’s Web Player plugin. If we had more time, I wish we could have created a native HTML5 level editor without Unity.</p>
