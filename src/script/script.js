@@ -133,6 +133,8 @@ function swapContent(path) {
 				pageScript = document.body.appendChild(document.createElement('script'));
 				pageScript.src = '/script/lightbox.js';
 				pageScript.setAttribute('id', 'page-script');
+			} else if(currPath[1] === '') {
+				navbar.className = 'navbar-hide'; // rehide navbar if you press back onto frontpage
 			}
 		} else {
 			console.error(xhr.statusText);
