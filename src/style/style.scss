@@ -469,7 +469,19 @@ $filter-height: 48px;
 	@include transition(opacity 0.3s ease-out);
 }
 
-.work-item div {
+.work-item .cat-label {
+	padding: 6px 8px;
+	position: absolute;
+	top: 12px;
+	right: 0;
+	font-size: 12px;
+	font-weight: bold;
+	background-color: rgba(60, 60, 60, 0.5);
+	color: #fafafa;
+	text-transform: uppercase;
+}
+
+.work-item .overlay {
 	box-sizing: border-box;
 	width: 310px;
 	height: 230px;
@@ -484,7 +496,7 @@ $filter-height: 48px;
 	@include transition(top 0.3s cubic-bezier(0,1,.8,1));
 }
 
-.work-item:hover div {
+.work-item:hover .overlay {
 	top: 0;
 	background-color: #3dbbc2;
 	background-color: rgba(61,187,194,.9);
