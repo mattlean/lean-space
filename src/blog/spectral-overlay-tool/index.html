@@ -5,7 +5,7 @@
 		<title>Case Study: Spectral Overlay Tool | MattLean.com</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="/bower_components/normalize.css/normalize.css">
-		<link href='http://fonts.googleapis.com/css?family=Exo:300italic,300|Open+Sans:400,400italic,700,700italic|Open+Sans+Condensed:300|Inconsolata' rel='stylesheet' type='text/css'>
+		<link href="https://fonts.googleapis.com/css?family=Exo:300italic,300|Open+Sans:400,400italic,700,700italic|Open+Sans+Condensed:300|Inconsolata" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="/style/style.css">
 	</head>
 	<body>
@@ -67,7 +67,7 @@
 			<div class="fit">
 				<h2>Data Management</h2>
 				<p>Biosearch Technologies gave me the graph data in the form of CSV, but I wanted the application to run with JSON because it’s more flexible than CSV and JavaScript can handle it really easily.</p>
-				<p>To convert the data, I wrote a <a href="http://github.com/IsaacLean/csv-json-converter">little Python script that converts the CSV to JSON</a>. After the conversion, the JSON is then read in by the application. This makes it so that even Biosearch Technologies employees can update the graph data by themselves without me. All they need to do is convert their CSV to JSON and overwrite the existing JSON folder and the application will be updated.</p>
+				<p>To convert the data, I wrote a <a href="http://github.com/mattlean/csv-json-converter">little Python script that converts the CSV to JSON</a>. After the conversion, the JSON is then read in by the application. This makes it so that even Biosearch Technologies employees can update the graph data by themselves without me. All they need to do is convert their CSV to JSON and overwrite the existing JSON folder and the application will be updated.</p>
 				<h2>Scaffolding & Task Running</h2>
 				<p>I wanted to try out some new things in my workflow so I decided to use Yeoman. I really enjoyed using it since it setup the file structure and the project dependencies for me, saving me a lot of time when starting to work.</p>
 				<p>The most significant thing Yeoman introduced to me though was Grunt. Grunt’s tasks save me a ton of time! It can run the server for me, auto-refresh the browser when files are updated, compile SASS to CSS, run JSHint to lint my JavaScript, and run unit tests. All I need to do is type in one command and Grunt will do everything for me automatically in the background until I tell it to stop. What’s also nice is that I can build a production version of the tool where Grunt will compile all of the relevant files to reduce the amount of HTTP requests and minify it to reduce the file sizes of the codebase, making the live version of the application faster to download.</p>
@@ -80,7 +80,7 @@
 		<footer id="footer">
 			<a href="http://twitter.com/isaaclean"><img src="/img/twitter-logo.png" alt="Twitter"></a>
 			<a href="http://linkedin.com/in/mattlean"><img src="/img/linkedin-logo.png" alt="LinkedIn" class="linkedin"></a>
-			<a href="http://github.com/isaaclean"><img src="/img/github-mark.png" alt="GitHub"></a>
+			<a href="http://github.com/mattlean"><img src="/img/github-mark.png" alt="GitHub"></a>
 		</footer>
 		<div id="loader" class="load-hide">
 			<div></div>

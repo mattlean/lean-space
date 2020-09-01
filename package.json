@@ -1,17 +1,17 @@
 {
   "name": "lean-space",
-  "version": "0.0.0",
-  "description": "Theme for MattLean.com.",
+  "version": "1.0.0",
+  "description": "Website for MattLean.com.",
   "main": "index.html",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/IsaacLean/lean-space.git"
+    "url": "git+https://github.com/mattlean/lean-space.git"
   },
   "author": "Matthew Isaac Lean",
   "bugs": {
-    "url": "https://github.com/IsaacLean/lean-space/issues"
+    "url": "https://github.com/mattlean/lean-space/issues"
   },
-  "homepage": "https://github.com/IsaacLean/lean-space#readme",
+  "homepage": "https://github.com/mattlean/lean-space#readme",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "http-server"
