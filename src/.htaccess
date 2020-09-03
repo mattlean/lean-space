@@ -1,0 +1,5 @@
+Options +FollowSymLinks
+RewriteEngine on
+ErrorDocument 404 /404.html
+Redirect 301 /blog/spectral-overlay-tool https://mattlean.com/blog/cs-sot
+Redirect 301 /blog/spectral-overlay-tool/index.html https://mattlean.com/blog/cs-sot
