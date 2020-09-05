@@ -1,6 +1,6 @@
 <h1 align="center">Lean Space</h1>
 <p align="center">
-  <img src="lean-space-logo.jpg" align="center"><br>
+  <img src="lean-space-logo.jpg" align="center"><br><br>
   My personal website at <a href="https://mattlean.com">MattLean.com</a> from 2015–2020.
 </p>
 
